@@ -16,5 +16,34 @@ namespace mar
         {
             InitializeComponent();
         }
+
+
+
+        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (cbxMujer.IsChecked)
+            {
+                cbxMujer.IsChecked = true;
+                cbxHombre.IsChecked = false;
+            }
+
+            if (cbxHombre.IsChecked)
+            {
+                cbxMujer.IsChecked = false;
+                cbxHombre.IsChecked = true;
+            }
+        }
+
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            cbxMujer.IsChecked = true;
+            cbxHombre.IsChecked = false;
+        }
+
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            cbxMujer.IsChecked = false;
+            cbxHombre.IsChecked = true;
+        }
     }
 }

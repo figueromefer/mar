@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mar.Login"
-             xmlns:local="clr-namespace:LaPorcionDelMar.Controls"
+             xmlns:local="clr-namespace:mar.Controls"
              BackgroundImage="fondob.png">
 
     <ScrollView>

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="LaPorcionDelMar.MainPage" 
+             x:Class="mar.MainPage" 
              BackgroundImage="fondoa.png">
 
     <StackLayout HorizontalOptions="Fill" VerticalOptions="Center" Margin="50, 100, 50, 100">

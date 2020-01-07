@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mar.Perfil"
-             xmlns:local="clr-namespace:LaPorcionDelMar.Controls"
+             xmlns:local="clr-namespace:mar.Controls"
              BackgroundImage="fondoa.png">
 
     <ScrollView>
@@ -21,7 +21,7 @@
 
             <Label Text="E-mail" Font="Bold, 20" TextColor="#FFF" Margin="0, 10, 0, 0"></Label>
             <Frame BorderColor="#FFF" CornerRadius="5" Padding="5, 10, 5, 0" VerticalOptions="Center" BackgroundColor="#FFF">
-                <local:ImageEntry x:Name="txtMail" ImageHeight="10" HeightRequest="35" ImageWidth="11" TextColor="Black" Keyboard="Email" PlaceholderColor="#ccc" Image="mail" 
+                <local:ImageEntry x:Name="txtMail2" ImageHeight="10" HeightRequest="35" ImageWidth="11" TextColor="Black" Keyboard="Email" PlaceholderColor="#ccc" Image="mail" 
                  Placeholder="E-mail" BackgroundColor="#FFF" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 10"/>
             </Frame>
 

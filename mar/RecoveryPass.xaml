@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mar.RecoveryPass"
-             xmlns:local="clr-namespace:LaPorcionDelMar.Controls"
+             xmlns:local="clr-namespace:mar.Controls"
              BackgroundImage="fondoa.png">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Fill" Margin="50, 70, 50, 70">
