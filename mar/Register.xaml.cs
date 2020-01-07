@@ -15,6 +15,7 @@ namespace mar
         public Register()
         {
             InitializeComponent();
+            lineasiguiente.WidthRequest = btnNext.Width;
         }
 
 
