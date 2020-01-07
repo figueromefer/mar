@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mar.Login"
+             xmlns:local="clr-namespace:mar.Controls"
+             BackgroundImage="fondob.png">
+
+    <ScrollView>
+        <StackLayout HorizontalOptions="Fill" Margin="50, 70, 50, 70">
+            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="10"></Image>
+            <Label Text="Iniciar sesión" Margin="0, 0, 0, 10" FontFamily="Lato" Font="Normal, 22" TextColor="#FFF"></Label>
+
+            <Frame BorderColor="#FFF" CornerRadius="5" Padding="5, 10, 5, 0" VerticalOptions="Center" BackgroundColor="#FFF">
+                <local:ImageEntry TextColor="Black" Keyboard="Email" ImageHeight="10" HeightRequest="35" ImageWidth="11" PlaceholderColor="#ccc" Image="mail" 
+                Placeholder="Email" BackgroundColor="#FFF" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 10"/>
+            </Frame>
+
+            <Frame BorderColor="#FFF" CornerRadius="5" Padding="5, 10, 5, 5" VerticalOptions="Center" BackgroundColor="#FFF">
+                <local:ImageEntry TextColor="Black" IsPassword="True" ImageHeight="10" HeightRequest="35" ImageWidth="8" PlaceholderColor="#ccc" Image="secure" 
+                Placeholder="Contraseña" BackgroundColor="#FFF" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <Button x:Name="btnRecovery" Text="¿Olvidaste tu contraseña?" TextColor="#FFF" BackgroundColor="Transparent"></Button>
+
+            <StackLayout HorizontalOptions="Fill">
+                <Button Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#3d454c" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
+                <Button Text="Iniciar sesión con Facebook" ImageSource="FacebookF_16.png" BackgroundColor="#368dde" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
+            </StackLayout>
+        </StackLayout>
+     </ScrollView>
+</ContentPage>

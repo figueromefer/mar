@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mar.RecoveryPass"
+             xmlns:local="clr-namespace:mar.Controls"
+             BackgroundImage="fondoa.png">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill" Margin="50, 70, 50, 70">
+            <Label Text="¿Olvidaste tu contraseña?" Margin="0, 0, 0, 50" Font="Normal, 24" TextColor="#FFF"></Label>
+
+            <Label Text="Email" Font="Normal, 20" TextColor="#FFF"></Label>
+
+            <Frame BorderColor="#FFF" CornerRadius="5" Padding="5, 10, 5, 5" VerticalOptions="Center" BackgroundColor="#FFF">
+                <local:ImageEntry TextColor="Black" ImageHeight="10" HeightRequest="35" ImageWidth="11" Keyboard="Email" PlaceholderColor="#ccc" Image="mail" 
+                Placeholder="Email" BackgroundColor="#FFF" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <Label Text="Verifica tu e-mail" Margin="0, 10, 0, 0" Font="Normal, 20" TextColor="#FFF"></Label>
+
+            <Frame BorderColor="#FFF" CornerRadius="5" Padding="5, 10, 5, 5" VerticalOptions="Center" BackgroundColor="#FFF">
+                <local:ImageEntry TextColor="Black" ImageHeight="10" HeightRequest="35" ImageWidth="11" Keyboard="Email" PlaceholderColor="#ccc" Image="mail"
+                Placeholder="E-mail otra vez" BackgroundColor="#FFF" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <Label Text="En unos momentos recibiras un mail de confirmación" Font="Normal, 16" HorizontalTextAlignment="Start" TextColor="#FFF"></Label>
+            <!--
+            <Label Text="Email" Font="Normal, 20" TextColor="#FFF"></Label>
+            <Entry Placeholder="E-mail" BackgroundColor="#FFF" TextColor="#3D454C" PlaceholderColor="#3D454C"></Entry>
+            <Label Text="Verifica tu e-mail" Margin="10, 0, 0, 0" Font="Normal, 20" TextColor="#FFF"></Label>
+            <Entry Placeholder="Contraseña"  BackgroundColor="#FFF" TextColor="#3D454C" PlaceholderColor="#3D454C"></Entry>
+            <Label Text="En unos momentos recibiras un mail de confirmaciión" HorizontalTextAlignment="Start" TextColor="#FFF"></Label>
+             -->
+            <StackLayout VerticalOptions="Center">
+                <Button Text="Siguiente" Margin="0, 0, 0, 0" BackgroundColor="Transparent" TextColor="#FFF" HorizontalOptions="End"></Button>
+                <!--<BoxView BackgroundColor="White" WidthRequest="10" HeightRequest="1" Margin="180, -20, 30, 0"></BoxView>-->
+            </StackLayout>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
