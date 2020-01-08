@@ -1,8 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Home" BackgroundColor="White">
-    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal">
-            
-        </StackLayout>
-    </ScrollView>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="#3D454C">
+                <Image Source="imagotipo.png" WidthRequest="30" Margin="15,5,5,5" />
+                <Label FontSize="14" TextColor="#CF7667" Margin="0,10,25,5" Text="Menú">
+                </Label>
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
+                    <Label FontSize="14" TextColor="#FFFFFF" Text="Camarón" VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label HeightRequest="3" BackgroundColor="#CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
+                    <Label FontSize="14" TextColor="#D4D4D4" Text="Atún" VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label HeightRequest="3" BackgroundColor="#00CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
+                    <Label FontSize="14" TextColor="#D4D4D4" Text="Pescado" VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label HeightRequest="3" BackgroundColor="#00CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,20,25,25">
+                <Label x:Name="LblTitulo" FontSize="25" TextColor="4F4D4D" Text="Camarón por kilo">
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
 </ContentPage>
