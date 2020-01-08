@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mar.Paginas.Settings"
+             BackgroundImage="fondoa">
+
+    <StackLayout HorizontalOptions="FillAndExpand" Margin="50, 50, 50, 50">
+        <Image Source="title" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 35"></Image>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"></ColumnDefinition>
+                <ColumnDefinition Width="35"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Text="Historial de pedidos" Font="Bold, 20" Grid.Column="0" Grid.Row="0" TextColor="#CCC" VerticalOptions="Center"></Label>
+            <ImageButton Source="arrowright" Grid.Column="1" HorizontalOptions="End" Grid.Row="0"></ImageButton>
+
+            <Label Text="Métodos de pago" Font="Bold, 20" Grid.Column="0" Grid.Row="1" TextColor="#CCC" VerticalOptions="Center"></Label>
+            <ImageButton Source="arrowright" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"></ImageButton>
+
+            <Label Text="Notificaciones" Font="Bold, 20" Grid.Column="0" Grid.Row="2" TextColor="#CCC" VerticalOptions="Center"></Label>
+            <ImageButton Source="arrowright" Grid.Column="1" Grid.Row="2" HorizontalOptions="End"></ImageButton>
+
+            <Label Text="Cerrar sesion" Font="Bold, 20" Grid.Column="0" Grid.Row="3" TextColor="#CCC" VerticalOptions="Center"></Label>
+            <ImageButton Source="arrowright" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></ImageButton>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -10,32 +10,32 @@ namespace Toss
         {
             this.Add(new MenuItem()
             {
+                Titulo = "Home",
+                TargetType = typeof(mar.Paginas.Home)
+            });
+
+            this.Add(new MenuItem()
+            {
                 Titulo = "Perfil",
-                TargetType = typeof(Perfil)
+                TargetType = typeof(mar.Perfil)
             });
 
             this.Add(new MenuItem()
             {
-                Titulo = "Amigos",
-                TargetType = typeof(Amigos)
-            });
-
-            this.Add(new MenuItem()
-            {
-                Titulo = "Mensajes",
-                TargetType = typeof(Mensajes)
+                Titulo = "Ayuda",
+                //TargetType = typeof(Mensajes)
             });
 
             this.Add(new MenuItem()
             {
                 Titulo = "Configuraciones",
-                TargetType = typeof(Configuraciones)
+                //TargetType = typeof(Configuraciones)
             });
 
             this.Add(new MenuItem()
             {
                 Titulo = "Cerrar sesión",
-                TargetType = typeof(Logout)
+                //TargetType = typeof(Logout)
             });
         }
     }

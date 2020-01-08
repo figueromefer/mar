@@ -158,4 +158,10 @@
     <BundleResource Include="Resources\secure.png" />
     <BundleResource Include="Resources\userperfil.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\title.png" />
+  </ItemGroup>
 </Project>

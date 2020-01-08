@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Xamarin.Forms;
 
 namespace Toss
@@ -16,7 +15,7 @@ namespace Toss
             Master = menuPage;
             try
             {
-                Detail = new NavigationPage(new Home());
+                Detail = new NavigationPage(new mar.Paginas.Home());
             }
             catch (Exception ex)
             {
