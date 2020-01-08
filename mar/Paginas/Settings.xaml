@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="mar.Paginas.Settings"
+             x:Class="mar.Settings"
              BackgroundImage="fondoa">
 
     <StackLayout HorizontalOptions="FillAndExpand" Margin="50, 50, 50, 50">

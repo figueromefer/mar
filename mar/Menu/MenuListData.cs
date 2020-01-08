@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Toss
+namespace mar
 {
     public class MenuListData : List<MenuItem>
     {
@@ -11,7 +11,7 @@ namespace Toss
             this.Add(new MenuItem()
             {
                 Titulo = "Home",
-                TargetType = typeof(mar.Paginas.Home)
+                TargetType = typeof(mar.Home)
             });
 
             this.Add(new MenuItem()

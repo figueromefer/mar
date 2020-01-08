@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace Toss
+namespace mar
 {
     public class MenuPage : ContentPage
     {

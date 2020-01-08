@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="mar.Login"
              xmlns:local="clr-namespace:mar.Controls"
-             BackgroundImage="fondob.png">
+             BackgroundImage="fondob.png"
+             NavigationPage.HasNavigationBar="false">
 
     <ScrollView>
         <StackLayout HorizontalOptions="Fill" Margin="50, 70, 50, 70">
@@ -26,8 +27,8 @@
             <Button x:Name="btnRecovery" Text="¿Olvidaste tu contraseña?" TextColor="#FFF" BackgroundColor="Transparent"></Button>
 
             <StackLayout HorizontalOptions="Fill">
-                <Button Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#3d454c" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
-                <Button Text="Iniciar sesión con Facebook" ImageSource="FacebookF_16.png" BackgroundColor="#368dde" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
+                <Button x:Name="btnLogin" Clicked="BtnLogin_Clicked" Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#3d454c" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
+                <Button x:Name="btnFacebook" Text="Iniciar sesión con Facebook" ImageSource="FacebookF_16.png" BackgroundColor="#368dde" Font="Normal, 18" TextColor="#FFF" CornerRadius="10"></Button>
             </StackLayout>
         </StackLayout>
      </ScrollView>
