@@ -161,6 +161,8 @@
     <BundleResource Include="Resources\Lato-Bold.ttf" />
     <BundleResource Include="Resources\Lato-Light.ttf" />
     <BundleResource Include="Resources\Lato-Regular.ttf" />
+    <BundleResource Include="Resources\Times.ttf" />
+    <BundleResource Include="Resources\proddemo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\check.png" />
