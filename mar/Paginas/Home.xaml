@@ -25,7 +25,7 @@
         </ScrollView>
         <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,20,25,25">
-                <Label x:Name="LblTitulo" FontSize="25" TextColor="4F4D4D" Text="Camarón por kilo">
+                <Label x:Name="LblTitulo" FontSize="25" TextColor="#4F4D4D" Text="Camarón por kilo">
                 </Label>
             </StackLayout>
         </ScrollView>

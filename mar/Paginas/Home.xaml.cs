@@ -16,21 +16,8 @@ namespace mar
         {
             InitializeComponent();
 
-            // Go to the Login page
-            btnLogin.Clicked += BtnLogin_Clicked;
-
-            // Go the Register page
-            btnRegister.Clicked += BtnRegister_Clicked;
         }
 
-        private void BtnRegister_Clicked(object sender, EventArgs e)
-        {
-            ((NavigationPage)this.Parent).PushAsync(new Register());
-        }
-
-        private void BtnLogin_Clicked(object sender, EventArgs e)
-        {
-            ((NavigationPage)this.Parent).PushAsync(new Login());
-        }
+       
     }
 }
