@@ -105,6 +105,11 @@
     <AndroidResource Include="Resources\drawable\plus.png" />
     <AndroidResource Include="Resources\drawable\secure.png" />
     <AndroidResource Include="Resources\drawable\userperfil.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\splash.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
