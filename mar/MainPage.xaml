@@ -20,17 +20,5 @@
             </StackLayout>
         </StackLayout>
     </AbsoluteLayout>
-
-    <!--
-        <StackLayout HorizontalOptions="Fill" VerticalOptions="Center" Margin="50, 100, 50, 100">
-            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="10"></Image>
-
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="5, 5, 5, 5">
-                <Label Text="La mejor cálidad y frescura hasta la puerta de tu casa." HorizontalTextAlignment="Center" TextColor="#FFF" Font="Arial, 22"></Label>
-
-                <Button x:Name="btnRegister" Text="Regístrate" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 18" CornerRadius="10"  Margin="0, 20, 0, 10"></Button>
-                <Button x:Name="btnLogin" Text="Inicia sesión" BackgroundColor="#C0C0C0" TextColor="#000" Font="Arial, 18" CornerRadius="10"></Button>
-            </StackLayout>
-        </StackLayout>
-    -->
+    
 </ContentPage>
