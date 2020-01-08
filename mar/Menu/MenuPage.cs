@@ -11,22 +11,21 @@ namespace mar
         public MenuPage()
         {
             Title = "MENÚ";
-            BackgroundColor = Color.FromHex("#0B6F96");
-            Menu = new MenuListView() { Margin = new Thickness(0,70,0,10)};
-
+            BackgroundColor = Color.FromHex("#3D454C");
+            Menu = new MenuListView() { Margin = new Thickness(0, 20, 0, 60)};
 
             var layout = new StackLayout
             {
-                BackgroundColor = Color.FromHex("#0B6F96"),
+                BackgroundColor = Color.FromHex("#3D454C"),
                 Spacing = 0,
                 VerticalOptions = LayoutOptions.Start,
-                Padding = new Thickness(20,40,20,50),
+                Padding = new Thickness(20, 40, 20, 50),
             };
-            var imagen = new Image() { Source = ImageSource.FromFile("logo.png"), WidthRequest = 100, Aspect = Aspect.AspectFit };
-            var stackimg = new StackLayout { BackgroundColor = Color.FromHex("#0B6F96"), HorizontalOptions = LayoutOptions.FillAndExpand, Children = { imagen } };
+            var imagen = new Image() { Source = ImageSource.FromFile("title.png"), WidthRequest=250, Aspect = Aspect.AspectFit };
+            var stackimg = new StackLayout { BackgroundColor = Color.FromHex("#3D454C"), HorizontalOptions = LayoutOptions.FillAndExpand, Children = { imagen } };
             layout.Children.Add(stackimg);
             Label legal = new Label() { Margin = new Thickness(10, 50, 0, 10), TextColor = Color.White, FontSize = 16, Text = "Legal" };
-            Label acerca = new Label() { Margin = new Thickness(10, 0, 0, 30), TextColor = Color.White, FontSize = 16, Text = "Acerca de Toss" };
+            Label acerca = new Label() { Margin = new Thickness(10, 0, 0, 30), TextColor = Color.White, FontSize = 16, Text = "Acerca de" };
             var redes = new Image()
             {
                 HorizontalOptions = LayoutOptions.Start,

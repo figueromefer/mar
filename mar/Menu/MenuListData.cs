@@ -11,31 +11,25 @@ namespace mar
             this.Add(new MenuItem()
             {
                 Titulo = "Home",
-                TargetType = typeof(mar.Home)
+                TargetType = typeof(Home)
             });
 
             this.Add(new MenuItem()
             {
                 Titulo = "Perfil",
-                TargetType = typeof(mar.Perfil)
+                TargetType = typeof(Perfil)
             });
 
             this.Add(new MenuItem()
             {
                 Titulo = "Ayuda",
-                //TargetType = typeof(Mensajes)
+                TargetType = typeof(Contact)
             });
 
             this.Add(new MenuItem()
             {
-                Titulo = "Configuraciones",
-                //TargetType = typeof(Configuraciones)
-            });
-
-            this.Add(new MenuItem()
-            {
-                Titulo = "Cerrar sesión",
-                //TargetType = typeof(Logout)
+                Titulo = "Configuración",
+                TargetType = typeof(Settings)
             });
         }
     }

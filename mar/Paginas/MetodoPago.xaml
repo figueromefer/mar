@@ -6,26 +6,22 @@
              mc:Ignorable="d"
              x:Class="mar.MetodoPago">
 
-    <StackLayout HorizontalOptions="FillAndExpand" Margin="50, 50, 50, 50">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"></ColumnDefinition>
-                <ColumnDefinition Width="170"></ColumnDefinition>
-                <ColumnDefinition Width="70"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Image Source="card" VerticalOptions="Center" Grid.Column="0" Grid.Row="0"></Image>
-            <Label Text="E-mail" Font="Bold, 20" Grid.Column="1" Grid.Row="0" TextColor="#CCC" VerticalOptions="Center" Margin="0, 0, 0, 0"></Label>
-            <ImageButton Source="arrowright" Grid.Column="2" Grid.Row="0" HorizontalOptions="End"></ImageButton>
-
-            <Image Source="" VerticalOptions="Center" Grid.Column="0" Grid.Row="1"></Image>
-            <Label Text="Paypal" Font="Bold, 20" Grid.Column="1" Grid.Row="1" TextColor="#CCC" VerticalOptions="Center" Margin="0, 0, 0, 0"></Label>
-            <ImageButton Source="arrowright" Grid.Column="2" Grid.Row="1" HorizontalOptions="End"></ImageButton>
-        </Grid>
-    </StackLayout>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
+                        <Label Text="Conekta" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Label>
+                        <Image Source="arrowright" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></Image>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
+                        <Label Text="Paypal" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                        <Image Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>
