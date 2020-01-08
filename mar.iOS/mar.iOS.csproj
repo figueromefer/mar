@@ -157,6 +157,7 @@
     <BundleResource Include="Resources\plus.png" />
     <BundleResource Include="Resources\secure.png" />
     <BundleResource Include="Resources\userperfil.png" />
+    <BundleResource Include="Resources\imagotipo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\check.png" />
