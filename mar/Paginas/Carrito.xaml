@@ -8,29 +8,29 @@
 
     <ContentPage.Content>
         <AbsoluteLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50">
-                <StackLayout Orientation="Vertical" Spacing="10">
+            <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Spacing="10" Padding="40, 50, 40, 50" HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                             <Label Text="Canasta" Font="Normal, 25"></Label>
                             <Label Text="Subtotal" Font="Normal, 18"></Label>
                             <Label Text="$ 143.40" Font="Bold, 19"></Label>
                         </StackLayout>
-                        <Image Source="mail" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                        <Image Source="mail" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></Image>
                     </StackLayout>
                 </StackLayout>
 
                 <StackLayout x:Name="productos">
                 </StackLayout>
 
-                <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="40, 50, 40, 50" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
                     <Label Text="Dirección de entrga" TextColor="#CF7667"  Font="Normal, 18"></Label>
-                    <Button x:Name="btnLogin" Clicked="BtnLogin_Clicked" Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
+                    <Label Text="Jesus garcía 2760 Int. 18, Zapopan, Jalisco." Font="Normal, 18"></Label>
+                    <Button x:Name="btnLogin" Clicked="BtnAceptar_Clicked" Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
                     </Button>
                 </StackLayout>
             </StackLayout>
 
-            
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

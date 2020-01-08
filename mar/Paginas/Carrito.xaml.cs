@@ -16,5 +16,10 @@ namespace mar
         {
             InitializeComponent();
         }
+
+        void BtnAceptar_Clicked(object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new RootPage());
+        }
     }
 }
