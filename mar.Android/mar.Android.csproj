@@ -112,6 +112,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\splash.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\splash.png" />
     <AndroidResource Include="Resources\drawable\splash_centered.xml" />
+    <AndroidResource Include="Resources\drawable\imagotipo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
