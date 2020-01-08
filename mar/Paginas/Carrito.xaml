@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mar.Carrito">
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Canasta" Font="Normal, 25"></Label>
+                            <Label Text="Subtotal" Font="Normal, 18"></Label>
+                            <Label Text="$ 143.40" Font="Bold, 19"></Label>
+                        </StackLayout>
+                        <Image Source="mail" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="productos">
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Dirección de entrga" TextColor="#CF7667"  Font="Normal, 18"></Label>
+                    <Button x:Name="btnLogin" Clicked="BtnLogin_Clicked" Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
