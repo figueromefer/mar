@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace Toss
+namespace mar
 {
     public class RootPage : MasterDetailPage
     {
@@ -15,7 +15,7 @@ namespace Toss
             Master = menuPage;
             try
             {
-                Detail = new NavigationPage(new mar.Paginas.Home());
+                Detail = new NavigationPage(new mar.Home());
             }
             catch (Exception ex)
             {

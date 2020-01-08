@@ -4,6 +4,7 @@
     mc:Ignorable="d" x:Class="mar.MainPage"
              BackgroundImageSource="default.png" 
              IconImageSource="default.png"
+             NavigationPage.HasNavigationBar="false"
              >
 
     <AbsoluteLayout AbsoluteLayout.LayoutFlags="All" BackgroundColor="Red" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="0">

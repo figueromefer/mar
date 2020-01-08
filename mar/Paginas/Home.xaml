@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="mar.Paginas.Home">
+             x:Class="mar.Home">
     
     <AbsoluteLayout AbsoluteLayout.LayoutFlags="All" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Image Source="fondoa.png" IsVisible="True" Margin="10"></Image>

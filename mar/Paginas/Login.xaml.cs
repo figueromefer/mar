@@ -23,5 +23,10 @@ namespace mar
         {
             ((NavigationPage)this.Parent).PushAsync(new RecoveryPass());
         }
+
+        void BtnLogin_Clicked(object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new RootPage());
+        }
     }
 }
