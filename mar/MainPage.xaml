@@ -7,17 +7,16 @@
              NavigationPage.HasNavigationBar="false"
              >
 
-    <AbsoluteLayout AbsoluteLayout.LayoutFlags="All" BackgroundColor="Red" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="0">
-        <Image Source="fondoa.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill"></Image>
+    <AbsoluteLayout >
+        <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
 
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20, 100, 20, 100">
-            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="10"></Image>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="20, 150, 20, 100">
+            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="30,0,30,20"></Image>
 
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="5, 5, 5, 5">
-                <Label Text="La mejor cálidad y frescura hasta la puerta de tu casa." HorizontalTextAlignment="Center" TextColor="#FFF" Font="Arial, 22"></Label>
-
-                <Button x:Name="btnRegister" Text="Regístrate" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 18" CornerRadius="10"  Margin="0, 20, 0, 10"></Button>
-                <Button x:Name="btnLogin" Text="Inicia sesión" BackgroundColor="#C0C0C0" TextColor="#000" Font="Arial, 18" CornerRadius="10"></Button>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="5, 5, 5, 5" Spacing="10">
+                <Label Text="La mejor cálidad y frescura hasta la puerta de tu casa." HorizontalTextAlignment="Center" TextColor="#FFF" Font="Arial, 16" Margin="0,0,0,45"></Label>
+                <Button x:Name="btnRegister" Text="Regístrate" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"  Margin="0, 0, 0, 10"></Button>
+                <Button x:Name="btnLogin" Text="Inicia sesión" BackgroundColor="#44FFFFFF" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"></Button>
             </StackLayout>
         </StackLayout>
     </AbsoluteLayout>
