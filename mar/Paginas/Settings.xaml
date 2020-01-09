@@ -4,32 +4,31 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="mar.Settings"
-             BackgroundImage="fondoa">
+             x:Class="mar.Settings">
 
     <ContentPage.Content>
         <AbsoluteLayout>
             <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             </Image>
             <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50">
-                <Image Source="title" HorizontalOptions="CenterAndExpand" Margin="20, 20, 20, 40"></Image>
+                <Image Source="title" HorizontalOptions="CenterAndExpand" Margin="25, 0, 25, 40"></Image>
 
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Label Text="Historial de pedidos" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                        <Image Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                        <ImageButton Clicked="BtnHistorial_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></ImageButton>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Label Text="Métodos de pago" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                        <Image Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <ImageButton Clicked="BtnPago_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Label Text="Notificaciones" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                        <Image Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <ImageButton Clicked="BtnNotificaciones_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Label Text="Cerrar sesion" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                        <Image Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <ImageButton Clicked="BtnLogout_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

@@ -16,5 +16,15 @@ namespace mar
         {
             InitializeComponent();
         }
+
+        private void BtnConekta_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new NewCard());
+        }
+
+        private void BtnPaypal_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new NewCard());
+        }
     }
 }
