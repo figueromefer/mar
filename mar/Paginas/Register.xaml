@@ -8,7 +8,7 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Label Text="Registro" TextColor="#FFF" Font="Normal, 22" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                         </Label>
-                        <Frame BackgroundColor="#52C4C4C4" VerticalOptions="CenterAndExpand" WidthRequest="50" HeightRequest="50" CornerRadius="50">
+                        <Frame BackgroundColor="#52C4C4C4" VerticalOptions="CenterAndExpand" WidthRequest="50" HeightRequest="50" CornerRadius="50" >
                             <StackLayout Orientation="Vertical" Spacing="10">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Source="camera" HorizontalOptions="Start">

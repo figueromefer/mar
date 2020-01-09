@@ -7,12 +7,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 
 namespace mar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
+        MediaFile file = null;
+        Stream stream = null;
+        string foto = "";
+
         public Register()
         {
             InitializeComponent();
@@ -88,7 +94,7 @@ namespace mar
                 var foto1 = "http://ec2-18-212-22-223.compute-1.amazonaws.com/upload/_foto_" + now1 + ".jpg";
                 foto1 = WebUtility.UrlEncode(foto1);
                 foto = foto1;
-                boton2.IsEnabled = true;
+                btnNext.IsEnabled = true;
                 perfil.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStreamWithImageRotatedForExternalStorage();
