@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
