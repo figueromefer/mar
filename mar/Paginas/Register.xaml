@@ -72,7 +72,7 @@
                         <Label Text="" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                         </Label>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                            <Button x:Name="btnNext" Text="Siguiente" Font="Bold, 18" BackgroundColor="Transparent" TextColor="#FFF">
+                            <Button x:Name="btnNext" Text="Siguiente" Font="Bold, 18" BackgroundColor="Transparent" TextColor="#FFF" Clicked="Handle_Clicked">
                             </Button>
                             <BoxView BackgroundColor="White" HeightRequest="1" Margin="12, -20, 12, 0">
                             </BoxView>

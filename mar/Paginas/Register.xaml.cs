@@ -44,5 +44,12 @@ namespace mar
             cbxMujer.IsChecked = false;
             cbxHombre.IsChecked = true;
         }
+
+        void Siguiente_Clicked(object sender, System.EventArgs e)
+        {
+            string nombre = txtNombre.Text;
+            string mail = txtMail.Text;
+            string celular = txtCelular.Text;
+        }
     }
 }
