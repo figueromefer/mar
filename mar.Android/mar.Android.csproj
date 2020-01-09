@@ -114,6 +114,7 @@
     <AndroidResource Include="Resources\drawable\splash_centered.xml" />
     <AndroidResource Include="Resources\drawable\imagotipo.png" />
     <AndroidResource Include="Resources\drawable\proddemo.png" />
+    <AndroidResource Include="Resources\drawable\cartwhite.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
