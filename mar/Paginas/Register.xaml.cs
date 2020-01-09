@@ -95,11 +95,11 @@ namespace mar
                 foto1 = WebUtility.UrlEncode(foto1);
                 foto = foto1;
                 btnNext.IsEnabled = true;
-                perfil.Source = ImageSource.FromStream(() =>
+                /*perfil.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStreamWithImageRotatedForExternalStorage();
                     return stream;
-                });
+                });*/
                 file.Dispose();
 
             }
