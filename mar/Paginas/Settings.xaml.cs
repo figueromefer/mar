@@ -16,5 +16,25 @@ namespace mar
         {
             InitializeComponent();
         }
+
+        private void BtnHistorial_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new Carrito());
+        }
+
+        private void BtnPago_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new MetodoPago());
+        }
+
+        private void BtnNotificaciones_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new Notifications());
+        }
+
+        private void BtnLogout_Clicked(object sender, EventArgs e)
+        {
+            ((NavigationPage)this.Parent).PushAsync(new MainPage());
+        }
     }
 }

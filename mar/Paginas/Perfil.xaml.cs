@@ -17,8 +17,6 @@ namespace mar
             InitializeComponent();
         }
 
-
-
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if (cbxMujer.IsChecked)
