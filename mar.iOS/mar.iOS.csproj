@@ -163,6 +163,7 @@
     <BundleResource Include="Resources\Lato-Regular.ttf" />
     <BundleResource Include="Resources\Times.ttf" />
     <BundleResource Include="Resources\proddemo.png" />
+    <BundleResource Include="Resources\cartwhite.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\check.png" />
