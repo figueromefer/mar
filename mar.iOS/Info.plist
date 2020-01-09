@@ -41,5 +41,13 @@
 		<string>Lato-Regular.ttf</string>
 		<string>Times.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Esta aplicación necesita la camara para tomar fotos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Esta aplicación necesita acceso a la galería para seleccionar fotos</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Esta aplicación necesita acceso al microfono</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Esta aplicación necesita acceso a la galería para seleccionar fotos</string>
 </dict>
 </plist>
