@@ -19,7 +19,7 @@ namespace mar
 
         private void BtnHistorial_Clicked(object sender, EventArgs e)
         {
-            ((NavigationPage)this.Parent).PushAsync(new Register());
+            ((NavigationPage)this.Parent).PushAsync(new Carrito());
         }
 
         private void BtnPago_Clicked(object sender, EventArgs e)

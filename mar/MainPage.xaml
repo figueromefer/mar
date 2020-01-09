@@ -8,10 +8,10 @@
              >
 
     <AbsoluteLayout >
-        <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+        <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
 
-        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="20, 150, 20, 100">
-            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="30,0,30,20"></Image>
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" Padding="20, 150, 20, 100">
+            <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="30, 0, 30, 20"></Image>
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="5, 5, 5, 5" Spacing="10">
                 <Label Text="La mejor cálidad y frescura hasta la puerta de tu casa." HorizontalTextAlignment="Center" TextColor="#FFF" Font="Arial, 16" Margin="0,0,0,45">

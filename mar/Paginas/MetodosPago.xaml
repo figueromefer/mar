@@ -7,31 +7,44 @@
              x:Class="mar.MetodosPago" BackgroundColor="#3D454C">
 
     <ContentPage.Content>
-        <StackLayout Margin="50">
+        <AbsoluteLayout BackgroundColor="#3D454C">
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 50, 0, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" Spacing="15">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                            </StackLayout>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                <CheckBox HorizontalOptions="End" Color="#CF7667"
+                         ScaleX="1.5" ScaleY="1.5" IsChecked="True"></CheckBox>
+                            </Frame>
+                        </StackLayout>
 
-                <StackLayout Grid.Row="0" Grid.Column="0">
-                    <Label Text="HÉCTOR LÓPEZ" TextColor="#FFFFFF"></Label>
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Otras tarjetas" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                            </StackLayout>
+
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                <CheckBox HorizontalOptions="End" Color="#CF7667"
+                         ScaleX="1.5" ScaleY="1.5"></CheckBox>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Efectivo" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
-
-                <StackLayout Grid.Row="0" Grid.Column="1">
-                    <Frame BorderColor="#CF7667" CornerRadius="50" Padding="0" HorizontalOptions="Center" Margin="0" BackgroundColor="#CF7667">
-                        <CheckBox HorizontalOptions="End" Color="#CF7667"
-                         ScaleX="1" ScaleY="1" IsChecked="True"></CheckBox>
-                    </Frame>
-                </StackLayout>
-                
-                
-            </Grid>
-        </StackLayout>
-       
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

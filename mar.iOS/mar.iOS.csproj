@@ -170,4 +170,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\title.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\carshopping.png" />
+  </ItemGroup>
 </Project>

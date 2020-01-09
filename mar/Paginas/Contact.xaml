@@ -6,9 +6,15 @@
              mc:Ignorable="d"
              x:Class="mar.Contact">
 
-    <StackLayout HorizontalOptions="Fill" Margin="50, 50, 50, 50">
-        <Label Text="¿Tienes algún problema?" Margin="0, 0, 0, 10" Font="Normal, 22" TextColor="#000"></Label>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#FFF">
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout HorizontalOptions="Fill" Margin="40, 50, 40, 50">
+                    <Label Text="¿Tienes algún problema?" Margin="0, 0, 0, 10" Font="Normal, 18" TextColor="#000"></Label>
 
-        <Button x:Name="btnRegister" Text="Contactar" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 18" CornerRadius="10"  Margin="0, 10, 0, 10"></Button>
-    </StackLayout>
+                    <Button x:Name="btnRegister" Text="Contactar" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"  Margin="0, 10, 0, 10"></Button>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>

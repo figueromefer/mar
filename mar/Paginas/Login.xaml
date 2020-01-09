@@ -3,8 +3,8 @@
     <AbsoluteLayout>
         <Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
         </Image>
-        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-            <StackLayout HorizontalOptions="Fill" Margin="50, 70, 50, 70">
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="40, 50, 40, 50">
                 <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="10">
                 </Image>
                 <Label Text="Iniciar sesión" Margin="0, 0, 0, 10" FontFamily="Lato" Font="Normal, 18" TextColor="#FFF">

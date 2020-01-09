@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="#FFF">
             <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout Orientation="Vertical" Spacing="10">
+                <StackLayout Orientation="Vertical" Spacing="15">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
                         <Label Text="Conekta" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Label>

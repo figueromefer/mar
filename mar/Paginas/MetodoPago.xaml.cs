@@ -19,7 +19,7 @@ namespace mar
 
         private void BtnConekta_Clicked(object sender, EventArgs e)
         {
-            ((NavigationPage)this.Parent).PushAsync(new NewCard());
+            ((NavigationPage)this.Parent).PushAsync(new MetodosPago());
         }
 
         private void BtnPaypal_Clicked(object sender, EventArgs e)
