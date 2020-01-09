@@ -59,6 +59,7 @@ namespace mar
             string mail = txtMail.Text;
             string celular = txtCelular.Text;
 
+
         }
 
         #region "tomar foto perfil"
@@ -147,14 +148,6 @@ namespace mar
             catch (Exception ex)
             {
                 return false;
-            }
-        }
-        public static byte[] ReadFully(Stream input)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                input.CopyTo(ms);
-                return ms.ToArray();
             }
         }
         #endregion

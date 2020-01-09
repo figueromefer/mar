@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace mar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Settings : ContentPage
+    public partial class Configuraciones : ContentPage
     {
-        public Settings()
+        public Configuraciones()
         {
             InitializeComponent();
         }
