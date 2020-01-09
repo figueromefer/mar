@@ -9,6 +9,7 @@ using Android.OS;
 using System.Threading.Tasks;
 using Android;
 using Plugin.CurrentActivity;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace mar.Droid
 {
@@ -24,6 +25,7 @@ namespace mar.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
         }
 

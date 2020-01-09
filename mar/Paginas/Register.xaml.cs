@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using ImageCircle.Forms.Plugin.Abstractions;
 
 namespace mar
 {
@@ -18,12 +19,40 @@ namespace mar
         MediaFile file = null;
         Stream stream = null;
         string foto = "";
+        CircleImage perfil = new CircleImage() { WidthRequest = 80, HeightRequest = 80, Source = ImageSource.FromFile("userperfil.png")};
 
         public Register()
         {
             InitializeComponent();
+            perfil.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Tomar_foto_perfil();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
+            cargarfoto.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Tomar_foto_perfil();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
         }
-
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
@@ -52,14 +81,62 @@ namespace mar
             cbxHombre.IsChecked = true;
         }
 
-        void Siguiente_Clicked(object sender, System.EventArgs e)
+        public async void Siguiente_Clicked(object sender, System.EventArgs e)
         {
+            string vali = "1";
             string contrasena = txtContrasena.Text;
             string nombre = txtNombre.Text;
             string mail = txtMail.Text;
             string celular = txtCelular.Text;
+            if(nombre.Length < 2)
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Nombre incompleto, favor de validar.", "OK");
+            }
+            if (contrasena.Length < 2)
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Contraseña incompleta, favor de validar.", "OK");
+            }
+            if (mail.Length < 2)
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Correo incompleto, favor de validar.", "OK");
+            }
+            if (celular.Length < 2)
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Celular incompleto, favor de validar.", "OK");
+            }
+            string genero = "Mujer";
+            if(cbxMujer.IsChecked || cbxHombre.IsChecked)
+            {
+                if (cbxHombre.IsChecked)
+                {
+                    genero = "Hombre";
+                }
+            }
+            else
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Genero no especificado.", "OK");
+            }
+            if(foto == "")
+            {
+                vali = "0";
+                await DisplayAlert("ALERTA", "Foto de perfil no definida o en proceso de carga.", "OK");
+            }
+            if(vali == "1")
+            {
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/registro.php?nombre={0}&contrasena={1}&correo={2}&celular={3}&genero={4}&foto={5}", nombre, contrasena, mail, celular, genero, foto);
+                var response2 = await httpRequest(uriString2);
+                if (response2 != "" && response2 != "0")
+                {
+                    Settings.Idusuario = response2; 
+                    Application.Current.MainPage = new NavigationPage(new RootPage());
+                }
 
-
+            }
         }
 
         #region "tomar foto perfil"
@@ -92,15 +169,17 @@ namespace mar
                 if (file == null) { await DisplayAlert("Alerta", "Falta definir una foto.", "OK"); }
                 await Upload(file, "_foto_" + now1 + ".jpg");
 
-                var foto1 = "http://ec2-18-212-22-223.compute-1.amazonaws.com/upload/_foto_" + now1 + ".jpg";
+                var foto1 = "_foto_" + now1 + ".jpg";
                 foto1 = WebUtility.UrlEncode(foto1);
                 foto = foto1;
                 btnNext.IsEnabled = true;
-                /*perfil.Source = ImageSource.FromStream(() =>
+                perfil.Source = ImageSource.FromStream(() =>
                 {
-                    var stream = file.GetStreamWithImageRotatedForExternalStorage();
+                    stream = file.GetStreamWithImageRotatedForExternalStorage();
                     return stream;
-                });*/
+                });
+                StackFoto.Children.RemoveAt(1);
+                StackFoto.Children.Add(perfil);
                 file.Dispose();
 
             }
@@ -122,7 +201,7 @@ namespace mar
                 bitmapData = stream.ToArray();
                 var fileContent = new ByteArrayContent(bitmapData);
 
-                fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/jpg");
+                fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/jpeg");
                 fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
                 {
                     Name = "fileUpload",

@@ -9,8 +9,15 @@ namespace mar
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            if(Settings.Idusuario == "")
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new RootPage());
+            }
+            
         }
 
         protected override void OnStart()
