@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="mar.Perfil"
              xmlns:local="clr-namespace:mar.Controls">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" Text="Search" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <AbsoluteLayout BackgroundColor="#FFF">

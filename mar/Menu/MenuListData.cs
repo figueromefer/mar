@@ -29,7 +29,7 @@ namespace mar
             this.Add(new MenuItem()
             {
                 Titulo = "Configuración",
-                TargetType = typeof(Settings)
+                TargetType = typeof(Configuraciones)
             });
         }
     }
