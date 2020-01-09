@@ -11,5 +11,4 @@
 
         <Button x:Name="btnRegister" Text="Contactar" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 18" CornerRadius="10"  Margin="0, 10, 0, 10"></Button>
     </StackLayout>
-    
 </ContentPage>
