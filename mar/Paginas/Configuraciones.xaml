@@ -15,19 +15,52 @@
 
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Label Text="Historial de pedidos" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnHistorial_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        
+                        <Label Text="Historial de pedidos" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnHistorial_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <ImageButton Clicked="BtnHistorial_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></ImageButton>
                     </StackLayout>
+                    
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Label Text="Métodos de pago" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnPago_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="Métodos de pago" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnPago_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <ImageButton Clicked="BtnPago_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Label Text="Notificaciones" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnNotificaciones_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        
+                        <Label Text="Notificaciones" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnNotificaciones_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <ImageButton Clicked="BtnNotificaciones_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Label Text="Cerrar sesion" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnLogout_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="Cerrar sesion" TextColor="#FFF" Font="Bold, 18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnLogout_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <ImageButton Clicked="BtnLogout_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </StackLayout>
