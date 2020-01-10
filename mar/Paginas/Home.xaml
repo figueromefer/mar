@@ -58,7 +58,7 @@
                             </OnPlatform>
                         </Label.FontFamily>
                     </Label>
-                    <Label Text="$ 0.00" x:Name="LblTot" TextColor="#FFFFFF" FontSize="12" HorizontalOptions="CenterAndExpand" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="End">
+                    <Label Text="$ 0.00" x:Name="LblTot" TextColor="#FFFFFF" FontSize="12" HorizontalOptions="End" WidthRequest="70" HorizontalTextAlignment="End" VerticalOptions="Center">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="Android" Value="Lato-Regular.ttf#Lato-Regular">
