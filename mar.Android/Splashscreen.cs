@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace mar.Droid
 {
-    [Activity(Theme = "@style/splashscreen", MainLauncher = true, NoHistory = true)]
+    [Activity(Label = "La porción del mar", Icon = "@mipmap/icon", Theme = "@style/splashscreen", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : Activity
     {
         static readonly string TAG = "X:" + typeof(SplashActivity).Name;

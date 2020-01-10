@@ -23,7 +23,7 @@ namespace mar
 
         public async void Cargar_productos()
         {
-            string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}", categoria);
+            string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
             var response2 = await httpRequest(uriString2);
             List<class_productos> valor = new List<class_productos>();
             valor = procesar2(response2);

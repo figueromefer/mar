@@ -23,56 +23,53 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
+        <Label x:Name="LblTitulo" FontSize="25" TextColor="#4F4D4D" Text="Camarón" Margin="0,20,0,20">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Times.ttf#Times">
+                    </On>
+                    <On Platform="iOS" Value="Times">
+                    </On>
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
         <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,20,25,25">
-                <Label x:Name="LblTitulo" FontSize="25" TextColor="#4F4D4D" Text="Camarón por kilo" Margin="0,0,0,30">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Times.ttf#Times">
-                            </On>
-                            <On Platform="iOS" Value="Times">
-                            </On>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,0,25,45">
                 <StackLayout x:Name="stkproductos">
-                    
-                    
                 </StackLayout>
-                
             </StackLayout>
         </ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="15,10,15,10" x:Name="BarTotal" VerticalOptions="End">
-                    <Frame IsClippedToBounds="true" CornerRadius="10" BackgroundColor="#CF7667" Padding="10,7,10,7">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="cartwhite.png" WidthRequest="25">
-                            </Image>
-                            <Frame BackgroundColor="#BA5949" Padding="2" WidthRequest="20">
-                                <Label Text="1" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
-                                </Label>
-                            </Frame>
-                            <Label Text="Ver carrito" TextColor="#FFFFFF" FontSize="14" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="Android" Value="Lato-Bold.ttf#Lato-Bold">
-                                        </On>
-                                        <On Platform="iOS" Value="Lato-Bold">
-                                        </On>
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-                            <Label Text="$ 77.90" TextColor="#FFFFFF" FontSize="12" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="Android" Value="Lato-Regular.ttf#Lato-Regular">
-                                        </On>
-                                        <On Platform="iOS" Value="Lato-Regular">
-                                        </On>
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-                        </StackLayout>
+            <Frame IsClippedToBounds="true" CornerRadius="10" BackgroundColor="#CF7667" Padding="10,7,10,7">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="cartwhite.png" WidthRequest="25">
+                    </Image>
+                    <Frame BackgroundColor="#BA5949" Padding="2" WidthRequest="20">
+                        <Label Text="1" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                        </Label>
                     </Frame>
+                    <Label Text="Ver carrito" TextColor="#FFFFFF" FontSize="14" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Lato-Bold.ttf#Lato-Bold">
+                                </On>
+                                <On Platform="iOS" Value="Lato-Bold">
+                                </On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Label Text="$ 77.90" TextColor="#FFFFFF" FontSize="12" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Lato-Regular.ttf#Lato-Regular">
+                                </On>
+                                <On Platform="iOS" Value="Lato-Regular">
+                                </On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
                 </StackLayout>
+            </Frame>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
