@@ -4,6 +4,9 @@ using System.IO;
 using System.Net;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace mar
 {
@@ -48,6 +51,8 @@ namespace mar
                 }
             }
         }
+
+        
 
         public async Task<string> httpRequest(string url)
         {

@@ -18,14 +18,16 @@ namespace mar.Droid
     {
         protected override async void OnCreate(Bundle savedInstanceState)
         {
+            await TryToGetPermissions();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            await TryToGetPermissions();
             base.OnCreate(savedInstanceState);
+            
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            ImageCircleRenderer.Init();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            ImageCircleRenderer.Init();
+            
             LoadApplication(new App());
         }
 
