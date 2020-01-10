@@ -45,10 +45,10 @@
                     <Image Source="cartwhite.png" WidthRequest="25">
                     </Image>
                     <Frame BackgroundColor="#BA5949" Padding="2" WidthRequest="20">
-                        <Label Text="1" x:Name="LblNum" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                        <Label Text="0" x:Name="LblNum" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         </Label>
                     </Frame>
-                    <Label Text="Ver carrito" TextColor="#FFFFFF" FontSize="14" HorizontalOptions="FillAndExpand" Margin="20,0,0,0" HorizontalTextAlignment="Center">
+                    <Label Text="Ver carrito" x:Name="vercarrito" TextColor="#FFFFFF" FontSize="14" HorizontalOptions="FillAndExpand" Margin="20,0,0,0" HorizontalTextAlignment="Center">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="Android" Value="Lato-Bold.ttf#Lato-Bold">

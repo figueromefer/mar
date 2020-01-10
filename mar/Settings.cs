@@ -22,5 +22,11 @@ namespace mar
 			get => AppSettings.GetValueOrDefault(nameof(Idusuario), string.Empty);
 			set => AppSettings.AddOrUpdateValue(nameof(Idusuario), value);
 		}
-	}
+
+        public static string Pedido
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Pedido), string.Empty);
+            set => AppSettings.AddOrUpdateValue(nameof(Pedido), value);
+        }
+    }
 }

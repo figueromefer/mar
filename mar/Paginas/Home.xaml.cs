@@ -21,6 +21,20 @@ namespace mar
             InitializeComponent();
             NavigationPage.SetTitleIconImageSource(this, "title2.png");
             Cargar_productos();
+            vercarrito.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        iracarrito();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
         }
 
         public async void Cargar_productos()
@@ -158,6 +172,43 @@ namespace mar
 
             }
 
+        }
+
+        public async void iracarrito()
+        {
+            try
+            {
+                
+                double preciototal = 0;
+                string stringproductos = "";
+                for (int i = 0; i < carrito.Count; i++)
+                {
+                    int cantidad = int.Parse(carrito[i].Split('|')[1]);
+                    double precio = double.Parse(carrito[i].Split('|')[2]);
+                    double totalproducto = double.Parse(cantidad.ToString()) * precio;
+                    preciototal = preciototal + totalproducto;
+                    if(stringproductos == "")
+                    {
+                        stringproductos = carrito[i];
+                    }
+                    else
+                    {
+                        stringproductos = stringproductos+"*"+ carrito[i];
+                    }
+                }
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/subircarrito.php?total={0}&productos={1}&usuario={2}", preciototal, stringproductos, Settings.Idusuario);
+                var response2 = await httpRequest(uriString2);
+                if(response2 != "0" && response2 != "")
+                {
+                    Settings.Pedido = response2;
+                    await Navigation.PushAsync(new Carrito());
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public List<class_productos> procesar2(string respuesta)
