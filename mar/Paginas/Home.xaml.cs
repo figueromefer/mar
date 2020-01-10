@@ -15,6 +15,7 @@ namespace mar
     public partial class Home : ContentPage
     {
         string categoria = "Camarones";
+        List<string> carrito = new List<string>();
         public Home()
         {
             InitializeComponent();
@@ -34,17 +35,43 @@ namespace mar
                 Label tituloproducto = new Label() { Text = valor.ElementAt(i).titulo, FontSize=16, TextColor = Color.FromHex("#888888"),FontFamily = Device.OnPlatform("Lato-Bold", "Lato-Bold.ttf#Lato-Bold", null) };
                 Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
-                Label precio = new Label() { Text = valor.ElementAt(i).precio, FontSize = 12, TextColor = Color.FromHex("#CF7667"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
+                Label precio = new Label() { Text = "$"+valor.ElementAt(i).precio, ClassId = valor.ElementAt(i).id, FontSize = 12, TextColor = Color.FromHex("#CF7667"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
                 Label menos = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center };
                 Frame framemenos = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = menos };
-
+                framemenos.GestureRecognizers.Add(new TapGestureRecognizer
+                {
+                    Command = new Command(() => {
+                        try
+                        {
+                            restarcantidad((StackLayout)framemenos.Parent);
+                        }
+                        catch (Exception ex)
+                        {
+                            Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                        }
+                    }),
+                    NumberOfTapsRequired = 1
+                });
                 Label cantidad = new Label() { Text = "0", FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
                 Label mas1 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 9, 0, 0) };
                 Label mas2 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 10, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -6, 0, 0) };
                 StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas1, mas2 } };
                 Frame framemas = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = stackmas };
-
+                framemas.GestureRecognizers.Add(new TapGestureRecognizer
+                {
+                    Command = new Command(() => {
+                        try
+                        {
+                            agregarcantidad((StackLayout)framemas.Parent);
+                        }
+                        catch (Exception ex)
+                        {
+                            Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                        }
+                    }),
+                    NumberOfTapsRequired = 1
+                });
                 StackLayout stackprecio_cantidad = new StackLayout() { Orientation = StackOrientation.Horizontal, Margin = new Thickness(0, 20, 0, 0), Children = { precio, framemenos, cantidad,framemas } };
 
                 StackLayout stackdetalle = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(15, 20, 0, 15), Children = { tituloproducto, descripcionproducto, stackprecio_cantidad } };
@@ -52,6 +79,84 @@ namespace mar
                 stkproductos.Children.Add(stackproducto);
             }
 
+        }
+
+        public async void agregarcantidad(StackLayout stackprecio_cantidad)
+        {
+            try
+            {
+                string idproducto = ((Label)stackprecio_cantidad.Children[0]).ClassId;
+                string precio = ((Label)stackprecio_cantidad.Children[0]).Text.Split('$')[1];
+                int cantidad = int.Parse(((Label)stackprecio_cantidad.Children[2]).Text);
+                cantidad = cantidad + 1;
+                string stringproducto = idproducto + "|" + cantidad + "|" + precio;
+                for(int i = 0; i < carrito.Count; i++)
+                {
+                    if(carrito[i].Split('|')[0] == idproducto)
+                    {
+                        carrito.RemoveAt(i);
+                    }
+                }
+                carrito.Add(stringproducto);
+                ((Label)stackprecio_cantidad.Children[2]).Text = cantidad.ToString();
+                actualizartotal();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public async void restarcantidad(StackLayout stackprecio_cantidad)
+        {
+            try
+            {
+                string idproducto = ((Label)stackprecio_cantidad.Children[0]).ClassId;
+                string precio = ((Label)stackprecio_cantidad.Children[0]).Text.Split('$')[1];
+                int cantidad = int.Parse(((Label)stackprecio_cantidad.Children[2]).Text);
+                cantidad = cantidad - 1;
+                string stringproducto = idproducto + "|" + cantidad + "|" + precio;
+                for (int i = 0; i < carrito.Count; i++)
+                {
+                    if (carrito[i].Split('|')[0] == idproducto)
+                    {
+                        carrito.RemoveAt(i);
+                    }
+                }
+                if (cantidad <= 0) { cantidad = 0; } else
+                {
+                    carrito.Add(stringproducto);
+                }
+                ((Label)stackprecio_cantidad.Children[2]).Text = cantidad.ToString();
+                actualizartotal();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public async void actualizartotal()
+        {
+            try
+            {
+                int cantidadproductos = carrito.Count;
+                double preciototal = 0;
+                for (int i = 0; i < carrito.Count; i++)
+                {
+                    int cantidad = int.Parse(carrito[i].Split('|')[1]);
+                    double precio = double.Parse(carrito[i].Split('|')[2]);
+                    double totalproducto = double.Parse(cantidad.ToString()) * precio;
+                    preciototal = preciototal + totalproducto;
+                }
+                LblNum.Text = cantidadproductos.ToString();
+                LblTot.Text = "$"+ preciototal.ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         public List<class_productos> procesar2(string respuesta)
