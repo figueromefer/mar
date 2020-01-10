@@ -15,33 +15,50 @@ namespace mar
         public Perfil()
         {
             InitializeComponent();
+            enabledDisabled(false);
         }
 
-        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        private void BtnEditar_Clicked(object sender, EventArgs e)
+        {
+            enabledDisabled(true);
+        }
+
+        private void CheckBox_Checked(object sender, CheckedChangedEventArgs e)
         {
             if (cbxMujer.IsChecked)
             {
                 cbxMujer.IsChecked = true;
+                cbxMujer.Color = Color.FromHex("#cf7667");
+                cbxHombre.Color = Color.FromHex("#3D454C");
                 cbxHombre.IsChecked = false;
             }
 
             if (cbxHombre.IsChecked)
             {
-                cbxMujer.IsChecked = false;
                 cbxHombre.IsChecked = true;
+                cbxHombre.Color = Color.FromHex("#cf7667");
+                cbxMujer.Color = Color.FromHex("#3D454C");
+                cbxMujer.IsChecked = false;
             }
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private void LblMujer_Tapped(object sender, EventArgs e)
         {
             cbxMujer.IsChecked = true;
             cbxHombre.IsChecked = false;
         }
 
-        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private void LblHombre_Tapped(object sender, EventArgs e)
         {
-            cbxMujer.IsChecked = false;
             cbxHombre.IsChecked = true;
+            cbxMujer.IsChecked = false;
+        }
+
+        private void enabledDisabled(Boolean estado)
+        {
+            txtNombre.IsEnabled = estado;
+            txtCelular.IsEnabled = estado;
+            txtContrasena.IsEnabled = estado;
         }
     }
 }
