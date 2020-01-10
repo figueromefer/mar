@@ -6,12 +6,7 @@
              mc:Ignorable="d"
              x:Class="mar.Perfil"
              xmlns:local="clr-namespace:mar.Controls">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="check" Text="Search" />
-        <ToolbarItem Icon="check" Text="Search" />
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
+          <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="#FFF">
                 <Grid HeightRequest="240">
@@ -21,7 +16,6 @@
                         <Image Source="userperfil"></Image>
                     </Frame>
                 </Grid>
-                
 
                 <StackLayout Margin="40, -20, 40, 20" Padding="0" VerticalOptions="FillAndExpand" Spacing="0">
                     <Label Text="" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
@@ -31,44 +25,54 @@
                     <StackLayout Spacing="15" Margin="0, 20, 0, 20">
                         <Label Text="Nombre" Font="Bold, 12" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
                         <Frame BorderColor="#FFF" CornerRadius="5" IsClippedToBounds="true" Padding="5, 3, 5, 3" VerticalOptions="Start" BackgroundColor="#FFF" Margin="0,0,0,0">
-                            <local:ImageEntry x:Name="txtNombre" Text="Mario Soto Moreno" TextColor="Black" FontSize="16" ImageWidth="10" ImageHeight="10" PlaceholderColor="#ccc" Image="secure" Placeholder="Contraseña" BackgroundColor="#FFF"
+                            <local:ImageEntry x:Name="txtNombre" MaxLength="45" Text="Mario Soto Moreno" TextColor="Black" FontSize="16" ImageWidth="10" ImageHeight="10" PlaceholderColor="#ccc" Image="secure" Placeholder="Contraseña" BackgroundColor="#FFF"
                         HorizontalOptions="FillAndExpand" />
                         </Frame>
 
                         <Label Text="Contraseña" Font="Bold, 12" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
                         <Frame BorderColor="#FFF" CornerRadius="5" IsClippedToBounds="true" Padding="5, 3, 5, 3" VerticalOptions="Start" BackgroundColor="#FFF" Margin="0,0,0,0">
-                            <local:ImageEntry x:Name="txtContrasena" TextColor="Black" IsPassword="True" FontSize="16" ImageWidth="10" ImageHeight="10" PlaceholderColor="#ccc" Image="secure" Placeholder="Contraseña" BackgroundColor="#FFF"
+                            <local:ImageEntry x:Name="txtContrasena" MaxLength="45" TextColor="Black" IsPassword="True" FontSize="16" ImageWidth="10" ImageHeight="10" PlaceholderColor="#ccc" Image="secure" Placeholder="Contraseña" BackgroundColor="#FFF"
                         HorizontalOptions="FillAndExpand" />
                         </Frame>
 
                         <Label Text="Teléfono" Font="Bold, 12" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
                         <Frame BorderColor="#FFF" CornerRadius="5" Padding="3, 5, 3, 5" VerticalOptions="Center" BackgroundColor="#FFF" Margin="0, 0, 0, 15">
                             <local:ImageEntry x:Name="txtCelular" ImageHeight="11" ImageWidth="12" TextColor="Black" Keyboard="Telephone" PlaceholderColor="#ccc" Image="phonelada" Placeholder="" BackgroundColor="#FFF" FontSize="18"
-                        WidthRequest="30" HorizontalOptions="FillAndExpand" MaxLength="10" />
+                        WidthRequest="30" HorizontalOptions="FillAndExpand">
+                                <Entry.Behaviors>
+                                    <behaviors:XamarinFastEntryBehaviour Mask="###-### ##-##" MaxLength="13"/>
+                                </Entry.Behaviors>
+                            </local:ImageEntry>
                         </Frame>
+
+                        <Label Text="Género" Font="Bold, 12" TextColor="#3D454C" Margin="0, 15, 0, 0"></Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name="lblHombre" Text="Hombre" TextColor="#3D454C" VerticalOptions="Center" Font="Normal, 18" Grid.Column="3">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LblHombre_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <CheckBox x:Name="cbxHombre" Color="#3D454C" Grid.Column="2" CheckedChanged="CheckBox_Checked"></CheckBox>
+
+                            <Label x:Name="lblMujer" Text="Mujer" TextColor="#3D454C" VerticalOptions="Center" Font="Normal, 18" Grid.Column="1">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LblMujer_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <CheckBox x:Name="cbxMujer" Color="#3D454C" CheckedChanged="CheckBox_Checked"></CheckBox>
+                        </Grid>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
-            <!--
-            <AbsoluteLayout BackgroundColor="#FFF">3D454C
-                <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                    <AbsoluteLayout BackgroundColor="Red">
-                        <Image Source="about_bg" HorizontalOptions="FillAndExpand"/>
-                        <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand">
-                            <Label BackgroundColor="#000" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
-                            <Image Source="userperfil" HorizontalOptions="FillAndExpand"></Image>
-                            <Label BackgroundColor="#000" VerticalOptions="Center" HorizontalOptions="EndAndExpand"></Label>
-                        </StackLayout>
-                    </AbsoluteLayout>
-
-                    <StackLayout Margin="40, 10, 40, 10" VerticalOptions="FillAndExpand">
-                        <Label Text="Mario Soto Moreno" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                        <Label Text="674-105-6381" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                        <Label Text="Septiembre, 12 - 2002" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                        <Label Text="Mujer" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </AbsoluteLayout>-->
+        </ScrollView>
+    </ContentPage.Content>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
