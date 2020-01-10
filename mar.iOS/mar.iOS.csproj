@@ -190,4 +190,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\carshopping.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whiteedit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whitechecked.png" />
+  </ItemGroup>
 </Project>
