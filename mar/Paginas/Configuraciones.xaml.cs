@@ -34,7 +34,7 @@ namespace mar
 
         private void BtnLogout_Clicked(object sender, EventArgs e)
         {
-            ((NavigationPage)this.Parent).PushAsync(new MainPage());
+            ((NavigationPage)this.Parent).PushAsync(new Cerrar());
         }
     }
 }
