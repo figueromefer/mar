@@ -18,6 +18,7 @@ namespace mar
         public Home()
         {
             InitializeComponent();
+            NavigationPage.SetTitleIconImageSource(this, "title2.png");
             Cargar_productos();
         }
 

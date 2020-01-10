@@ -23,7 +23,7 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-        <Label x:Name="LblTitulo" FontSize="25" TextColor="#4F4D4D" Text="Camarón" Margin="0,20,0,20">
+        <Label x:Name="LblTitulo" FontSize="25" TextColor="#4F4D4D" Text="Camarón" Margin="20,5,20,0">
             <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Times.ttf#Times">

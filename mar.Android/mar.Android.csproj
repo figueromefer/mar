@@ -134,6 +134,7 @@
     <AndroidResource Include="Resources\drawable\proddemo.png" />
     <AndroidResource Include="Resources\drawable\cartwhite.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
+    <AndroidResource Include="Resources\drawable\title2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
