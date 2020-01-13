@@ -39,59 +39,67 @@ namespace mar
 
         public async void Cargar_productos()
         {
-            string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
-            var response2 = await httpRequest(uriString2);
-            List<class_productos> valor = new List<class_productos>();
-            valor = procesar2(response2);
-            for (int i = 0; i < valor.Count(); i++)
+            try
             {
-                Image imagenproducto = new Image() { Source = ImageSource.FromFile("proddemo.png"), WidthRequest = 100 };
-                Label tituloproducto = new Label() { Text = valor.ElementAt(i).titulo, FontSize = 16, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Bold", "Lato-Bold.ttf#Lato-Bold", null) };
-                Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
-
-                Label precio = new Label() { Text = "$" + valor.ElementAt(i).precio, ClassId = valor.ElementAt(i).id, FontSize = 12, TextColor = Color.FromHex("#CF7667"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
-                Label menos = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center };
-                Frame framemenos = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = menos };
-                framemenos.GestureRecognizers.Add(new TapGestureRecognizer
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
+                var response2 = await httpRequest(uriString2);
+                List<class_productos> valor = new List<class_productos>();
+                valor = procesar2(response2);
+                for (int i = 0; i < valor.Count(); i++)
                 {
-                    Command = new Command(() => {
-                        try
-                        {
-                            restarcantidad((StackLayout)framemenos.Parent);
-                        }
-                        catch (Exception ex)
-                        {
-                            Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
-                        }
-                    }),
-                    NumberOfTapsRequired = 1
-                });
-                Label cantidad = new Label() { Text = "0", FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
+                    Image imagenproducto = new Image() { Source = ImageSource.FromFile("proddemo.png"), WidthRequest = 100 };
+                    Label tituloproducto = new Label() { Text = valor.ElementAt(i).titulo, FontSize = 16, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Bold", "Lato-Bold.ttf#Lato-Bold", null) };
+                    Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
-                Label mas1 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 9, 0, 0) };
-                Label mas2 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 10, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -6, 0, 0) };
-                StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas1, mas2 } };
-                Frame framemas = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = stackmas };
-                framemas.GestureRecognizers.Add(new TapGestureRecognizer
-                {
-                    Command = new Command(() => {
-                        try
-                        {
-                            agregarcantidad((StackLayout)framemas.Parent);
-                        }
-                        catch (Exception ex)
-                        {
-                            Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
-                        }
-                    }),
-                    NumberOfTapsRequired = 1
-                });
-                StackLayout stackprecio_cantidad = new StackLayout() { Orientation = StackOrientation.Horizontal, Margin = new Thickness(0, 20, 0, 0), Children = { precio, framemenos, cantidad, framemas } };
+                    Label precio = new Label() { Text = "$" + valor.ElementAt(i).precio, ClassId = valor.ElementAt(i).id, FontSize = 12, TextColor = Color.FromHex("#CF7667"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
+                    Label menos = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center };
+                    Frame framemenos = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = menos };
+                    framemenos.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = new Command(() => {
+                            try
+                            {
+                                restarcantidad((StackLayout)framemenos.Parent);
+                            }
+                            catch (Exception ex)
+                            {
+                                Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                            }
+                        }),
+                        NumberOfTapsRequired = 1
+                    });
+                    Label cantidad = new Label() { Text = "0", FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
-                StackLayout stackdetalle = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(15, 20, 0, 15), Children = { tituloproducto, descripcionproducto, stackprecio_cantidad } };
-                StackLayout stackproducto = new StackLayout() { Orientation = StackOrientation.Horizontal, Children = { imagenproducto, stackdetalle } };
-                stkproductos.Children.Add(stackproducto);
+                    Label mas1 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 9, 0, 0) };
+                    Label mas2 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 10, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -6, 0, 0) };
+                    StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas1, mas2 } };
+                    Frame framemas = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = stackmas };
+                    framemas.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = new Command(() => {
+                            try
+                            {
+                                agregarcantidad((StackLayout)framemas.Parent);
+                            }
+                            catch (Exception ex)
+                            {
+                                Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                            }
+                        }),
+                        NumberOfTapsRequired = 1
+                    });
+                    StackLayout stackprecio_cantidad = new StackLayout() { Orientation = StackOrientation.Horizontal, Margin = new Thickness(0, 20, 0, 0), Children = { precio, framemenos, cantidad, framemas } };
+
+                    StackLayout stackdetalle = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(15, 20, 0, 15), Children = { tituloproducto, descripcionproducto, stackprecio_cantidad } };
+                    StackLayout stackproducto = new StackLayout() { Orientation = StackOrientation.Horizontal, Children = { imagenproducto, stackdetalle } };
+                    stkproductos.Children.Add(stackproducto);
+                }
             }
+            catch (Exception ex)
+            {
+
+            }
+            
 
         }
 

@@ -1,34 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="mar.Carrito">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Carrito">
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Spacing="10" Padding="40, 50, 40, 50" HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                            <Label Text="Canasta" Font="Normal, 25"></Label>
-                            <Label Text="Subtotal" Font="Normal, 18"></Label>
-                            <Label Text="$ 143.40" Font="Bold, 19"></Label>
+                            <Label Text="Carrito" FontSize="25" TextColor="#888888">
+                            </Label>
+                            <Label Text="Subtotal" FontSize="18" TextColor="#888888">
+                            </Label>
+                            <Label Text="$ 0.00" FontSize="20" TextColor="#3D454C" x:Name="LblSubtotal">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Lato-Bold.ttf#Lato-Bold">
+                                        </On>
+                                        <On Platform="iOS" Value="Lato-Bold">
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
                         </StackLayout>
-                        <Image Source="carshopping.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                        <Image Source="carshopping.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        </Image>
                     </StackLayout>
                 </StackLayout>
-
-                <StackLayout x:Name="productos">
-                </StackLayout>
-
+                <ScrollView Padding="25,0,25,0">
+                    <StackLayout x:Name="stkproductos">
+                    </StackLayout>
+                </ScrollView>
+                <!--
                 <StackLayout Padding="40, 50, 40, 50" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
                     <Label Text="Dirección de entrga" TextColor="#CF7667"  Font="Normal, 18"></Label>
                     <Label Text="Jesus garcía 2760 Int. 18, Zapopan, Jalisco." Font="Normal, 18"></Label>
                     <Button x:Name="btnSave" Clicked="BtnAceptar_Clicked" Text="Pagar" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
                     </Button>
                 </StackLayout>
+                -->
+                
+                <Button x:Name="btnSave" Clicked="BtnAceptar_Clicked" Text="Continuar" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10" VerticalOptions="EndAndExpand" Margin="25,20,25,20">
+                </Button>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
