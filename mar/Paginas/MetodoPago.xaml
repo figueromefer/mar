@@ -27,7 +27,7 @@
                         
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
                         <Label Text="Tarjeta" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Label>
-                        <CheckBox x:Name="cbxTarjeta" Color="#CF7667" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
+                        <CheckBox x:Name="cbxTarjeta" Color="#CF7667" IsEnabled="False" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout.GestureRecognizers>
@@ -36,7 +36,7 @@
                         
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
                         <Label Text="Efectivo" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
-                        <CheckBox x:Name="cbxEfectivo" Color="#CF7667" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
+                        <CheckBox x:Name="cbxEfectivo" Color="#CF7667" IsEnabled="False" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
