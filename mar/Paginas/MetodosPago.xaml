@@ -1,48 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="mar.MetodosPago" BackgroundColor="#3D454C">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.MetodosPago" BackgroundColor="#3D454C">
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="#3D454C">
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 50, 0, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout Orientation="Vertical" Spacing="15">
-                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,30,0,30">
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Tarjeta" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Button x:Name="btnNuevaTarjeta" Clicked="BtnAceptar_Clicked" Text="Nueva Tarjeta" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10" VerticalOptions="Start" Padding="10,0,10,0">
+                            </Button>
+                        </StackLayout>
                         <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
-                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </Label>
+                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </Label>
                             </StackLayout>
-
                             <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True"></CheckBox>
+                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True">
+                                </CheckBox>
                             </Frame>
                         </StackLayout>
-
-                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Otras tarjetas" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
-                        </StackLayout>
-
                         <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
-                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="Efectivo" TextColor="#FFF" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                </Label>
                             </StackLayout>
-
                             <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667"
-                         ScaleX="1.5" ScaleY="1.5"></CheckBox>
+                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True">
+                                </CheckBox>
                             </Frame>
                         </StackLayout>
-
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="OXXO PAY" TextColor="#FFF" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                </Label>
+                            </StackLayout>
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True">
+                                </CheckBox>
+                            </Frame>
+                        </StackLayout>
                         <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Efectivo" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                            <Label Text="Domicilio" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Button x:Name="btnNuevoDomicilio" Clicked="BtnAceptar_Clicked" Text="Nuevo Domicilio" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10" VerticalOptions="Start" Padding="10,0,10,0">
+                            </Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="Calz del Federalismo Nte, Zona Centro, 44100 Guadalajara, Jal." TextColor="#FFF" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                </Label>
+                            </StackLayout>
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True">
+                                </CheckBox>
+                            </Frame>
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
+                </ScrollView>
+                <Button x:Name="btnContinuar" Clicked="BtnAceptar_Clicked" Text="Continuar" BackgroundColor="#CF7667" FontSize="16" TextColor="#FFF" VerticalOptions="End">
+                </Button>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

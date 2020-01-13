@@ -141,7 +141,7 @@ namespace mar
 
         void BtnAceptar_Clicked(object sender, System.EventArgs e)
         {
-            ((NavigationPage)this.Parent).PushAsync(new MetodoPago());
+            ((NavigationPage)this.Parent).PushAsync(new MetodosPago());
         }
     }
 }
