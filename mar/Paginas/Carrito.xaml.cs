@@ -15,7 +15,15 @@ namespace mar
         public Carrito()
         {
             InitializeComponent();
+            cargarcarrito();
         }
+
+        public async void cargarcarrito()
+        {
+
+        }
+
+
 
         void BtnAceptar_Clicked(object sender, System.EventArgs e)
         {
