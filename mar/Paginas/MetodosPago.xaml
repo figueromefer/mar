@@ -18,8 +18,7 @@
                             </StackLayout>
 
                             <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667"
-                         ScaleX="1.5" ScaleY="1.5" IsChecked="True"></CheckBox>
+                                <CheckBox HorizontalOptions="End" Color="#CF7667" ScaleX="1.5" ScaleY="1.5" IsChecked="True"></CheckBox>
                             </Frame>
                         </StackLayout>
 

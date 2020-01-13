@@ -8,8 +8,7 @@
 
     <ContentPage.Content>
         <AbsoluteLayout>
-            <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-            </Image>
+            <Image Source="fondoa.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>
             <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50">
                 <Image Source="title" HorizontalOptions="CenterAndExpand" Margin="25, 0, 25, 40"></Image>
 

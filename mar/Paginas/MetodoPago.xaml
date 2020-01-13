@@ -6,19 +6,37 @@
              mc:Ignorable="d"
              x:Class="mar.MetodoPago">
 
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label
+               Text="Seleccione el método de pago"
+               FontSize="18"
+               TextColor="White"
+               VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="#FFF">
             <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Orientation="Vertical" Spacing="15">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnConekta_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
-                        <Label Text="Conekta" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Label>
-                        <ImageButton Clicked="BtnConekta_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></ImageButton>
+                        <Label Text="Tarjeta" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></Label>
+                        <CheckBox x:Name="cbxTarjeta" Color="#CF7667" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnPaypal_Clicked" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
                         <Label Text="Efectivo" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
-                        <ImageButton Clicked="BtnPaypal_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <CheckBox x:Name="cbxEfectivo" Color="#CF7667" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></CheckBox>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

@@ -7,31 +7,51 @@
              x:Class="mar.Resumen">
 
     <ContentPage.Content>
-        <AbsoluteLayout BackgroundColor="#3D454C">
-            <Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 50, 0, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <AbsoluteLayout BackgroundColor="#FFF">
+            <!--<Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>-->
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout BackgroundColor="#3D454C" Padding="20">
+                    <Label Text="Resumen" Font="Bold, 16" TextColor="#FFF" HorizontalOptions="FillAndExpand"></Label>
+                </StackLayout>
+                
                 <StackLayout Orientation="Vertical" Spacing="15">
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Frame CornerRadius="5" BorderColor="Aqua" Padding="5" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                                <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Label Text="HECTOR LÓPEZ" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                            <Label Text="**** **** **** 1234" TextColor="#3D454C" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                        </StackLayout>
+
+                                        <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                            <Image Source="whitechecked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
                         <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
-                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="Método de pago" TextColor="#3D454C" Font="Bold, 14" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="**** **** **** 1234" TextColor="#3D454C" Font="Bold, 22"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
                             </StackLayout>
 
                             <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667"
-                         ScaleX="1.5" ScaleY="1.5" IsChecked="True"></CheckBox>
+                                <Image Source="card" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
                             </Frame>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Otras tarjetas" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                            <Label Text="Otras tarjetas" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="HECTOR LÓPEZ" TextColor="#FFF" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
-                                <Label Text="**** **** **** 1234" TextColor="#FFF" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="HECTOR LÓPEZ" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+                                <Label Text="**** **** **** 1234" TextColor="#3D454C" Font="Bold, 12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
                             </StackLayout>
 
                             <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">

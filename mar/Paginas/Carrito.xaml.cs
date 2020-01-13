@@ -19,7 +19,7 @@ namespace mar
 
         void BtnAceptar_Clicked(object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new MetodoPago());
+            ((NavigationPage)this.Parent).PushAsync(new MetodoPago());
         }
     }
 }
