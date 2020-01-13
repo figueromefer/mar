@@ -17,7 +17,7 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Image Source="card" HorizontalOptions="Start" VerticalOptions="Start"></Image>
-                        <Label Text="Paypal" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                        <Label Text="Efectivo" TextColor="#3D454C" Font="Bold, 18" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
                         <ImageButton Clicked="BtnPaypal_Clicked" BackgroundColor="Transparent" Source="arrowright" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </StackLayout>

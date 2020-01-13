@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Login" xmlns:local="clr-namespace:mar.Controls" NavigationPage.HasNavigationBar="false">
     <AbsoluteLayout>
-        <Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-        </Image>
+        <Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>
         <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="40, 50, 40, 50">
                 <Image Source="logoinicio.png" WidthRequest="320" HeightRequest="150" IsVisible="True" Margin="10">

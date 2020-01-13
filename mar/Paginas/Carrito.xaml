@@ -26,7 +26,7 @@
                 <StackLayout Padding="40, 50, 40, 50" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
                     <Label Text="Dirección de entrga" TextColor="#CF7667"  Font="Normal, 18"></Label>
                     <Label Text="Jesus garcía 2760 Int. 18, Zapopan, Jalisco." Font="Normal, 18"></Label>
-                    <Button x:Name="btnSave" Clicked="BtnAceptar_Clicked" Text="Iniciar sesión" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
+                    <Button x:Name="btnSave" Clicked="BtnAceptar_Clicked" Text="Pagar" Margin="0, 20, 0, 10" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10">
                     </Button>
                 </StackLayout>
             </StackLayout>

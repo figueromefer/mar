@@ -4,12 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:behaviors="clr-namespace:mar.FastEntry"
+             xmlns:local="clr-namespace:mar.Controls"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              mc:Ignorable="d"
-             x:Class="mar.Perfil"
-             xmlns:local="clr-namespace:mar.Controls">
+             x:Class="mar.Perfil">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="search.png" Text="Search" />
+        <ToolbarItem x:Name="btnEditar" Icon="whiteedit.png" Text="Search" Activated="BtnEditar_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -18,15 +19,17 @@
                 <Grid HeightRequest="240">
                     <Image Source="fondoa.png" HorizontalOptions="Fill" Aspect="AspectFill"></Image>
                     <BoxView Grid.Column="0" Grid.Row="1" Color="#FFF" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
-                    <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#FFF" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="180" HeightRequest="180" CornerRadius="180" Margin="0,5,0,10" HasShadow="True">
-                        <Image Source="userperfil"></Image>
+                    <Frame x:Name="imgPerfil" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Padding="0" BackgroundColor="#FFF" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="220" HeightRequest="220" CornerRadius="220" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+
+                        <controls:CircleImage x:Name="imgFoto" WidthRequest="400" Source="userperfil" Aspect="AspectFill"></controls:CircleImage>
                     </Frame>
                 </Grid>
 
-                <StackLayout Margin="40, -20, 40, 20" Padding="0" VerticalOptions="FillAndExpand" Spacing="0">
-                    <Label Text="" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                    <Label Text="Septiembre, 12 - 2002" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
-                    <Label Text="Hombre" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
+                <StackLayout Margin="40, 0, 40, 20" Padding="0" VerticalOptions="FillAndExpand" Spacing="0">
+                    <Label x:Name="lblData" Font="Bold, 18" HorizontalTextAlignment="Center" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
 
                     <StackLayout Spacing="15" Margin="0, 20, 0, 20">
                         <Label Text="Nombre" Font="Bold, 12" TextColor="#3D454C" HorizontalOptions="FillAndExpand"></Label>
@@ -65,14 +68,14 @@
                                     <TapGestureRecognizer Tapped="LblHombre_Tapped"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <CheckBox x:Name="cbxHombre" Color="#3D454C" Grid.Column="2" CheckedChanged="CheckBox_Checked"></CheckBox>
+                            <CheckBox x:Name="cbxHombre" Color="#3D454C" Grid.Column="2" CheckedChanged="CbxHombre_CheckedChanged"></CheckBox>
 
                             <Label x:Name="lblMujer" Text="Mujer" TextColor="#3D454C" VerticalOptions="Center" Font="Normal, 18" Grid.Column="1">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="LblMujer_Tapped"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <CheckBox x:Name="cbxMujer" Color="#3D454C" CheckedChanged="CheckBox_Checked"></CheckBox>
+                            <CheckBox x:Name="cbxMujer" Color="#3D454C" CheckedChanged="CbxMujer_CheckedChanged"></CheckBox>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
