@@ -31,45 +31,72 @@ namespace mar
 
         private void BtnEditar_Clicked(object sender, EventArgs e)
         {
-            clicks++;
 
             if (clicks % 2 == 0)
             {
                 EnabledDisabled(true);
                 btnEditar.IconImageSource = "whitechecked.png";
-                Siguiente_Clicked();
+                //FillComponents();
+                imgPerfil.GestureRecognizers.Add(new TapGestureRecognizer
+                {
+                    Command = new Command(() => {
+                        try
+                        {
+                            Tomar_foto_perfil();
+                        }
+                        catch (Exception ex)
+                        {
+                            Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                        }
+                    }),
+                    NumberOfTapsRequired = 1
+                });
             }
             else
             {
                 btnEditar.IconImageSource = "whiteedit.png";
                 EnabledDisabled(false);
-                FillComponents();
+                Siguiente_Clicked();
+                
             }
+            clicks++;
         }
 
         private async void FillComponents()
         {
-            int id = int.Parse(Settings.Idusuario);
-            string uri = string.Format("http://boveda-creativa.net/laporciondelmar/usuario.php?id={0}", id);
-            var response = await HttpRequest(uri);
-            _ = new class_usuarios();
-            class_usuarios valores = Procesar(response);
-
-            txtNombre.Text = valores.nombre;
-            txtCelular.Text = "" + valores.celular;
-            txtContrasena.Text = valores.contrasena;
-            imgFoto.Source = valores.foto;
-
-            if (valores.genero == "Hombre")
+            try
             {
-                cbxHombre.IsChecked = true;
-                cbxMujer.IsChecked = false;
+                int id = int.Parse(Settings.Idusuario);
+                string uri = string.Format("http://boveda-creativa.net/laporciondelmar/usuario.php?id={0}", id);
+                var response = await HttpRequest(uri);
+                _ = new class_usuarios();
+                class_usuarios valores = Procesar(response);
+
+                txtNombre.Text = valores.nombre;
+                txtCelular.Text = "" + valores.celular;
+                txtContrasena.Text = valores.contrasena;
+                //imgFoto.Source = valores.foto;
+                imgFoto.Source = new UriImageSource
+                {
+                    Uri = new Uri(valores.foto),
+                    CachingEnabled = false,
+                };
+                if (valores.genero == "Hombre")
+                {
+                    cbxHombre.IsChecked = true;
+                    cbxMujer.IsChecked = false;
+                }
+                else
+                {
+                    cbxMujer.IsChecked = true;
+                    cbxHombre.IsChecked = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                cbxMujer.IsChecked = true;
-                cbxHombre.IsChecked = false;
+
             }
+            
         }
 
         public class_usuarios Procesar(string respuesta)
@@ -185,15 +212,16 @@ namespace mar
             string nombre = txtNombre.Text;
             string celular = txtCelular.Text;
             string genero = cbxHombre.IsChecked ? "Hombre" : "Mujer";
-            subir_perfil();
+            imgPerfil.GestureRecognizers.RemoveAt(0);
 
             if (vali == "1")
             {
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/actualizar.php?nombre={0}&contrasena={1}&celular={2}&genero={3}&foto={4}", nombre, contrasena, celular, genero, foto);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/actualizar.php?nombre={0}&contrasena={1}&celular={2}&genero={3}&foto={4}&id={5}", nombre, contrasena, celular, genero, foto, Settings.Idusuario);
                 var response2 = await HttpRequest(uriString2);
                 if (response2 != "" && response2 != "0")
                 {
                     await DisplayAlert("Completado", "Se actualizaron los datos del usuario", "OK");
+                    FillComponents();
                 }
             }
         }
@@ -211,11 +239,13 @@ namespace mar
 
             file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
             {
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
+                CompressionQuality = 45
 
             });
             if (file == null)
                 return;
+            subir_perfil();
         }
 
         public async void subir_perfil()

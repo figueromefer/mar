@@ -20,10 +20,7 @@
                     <Image Source="fondoa.png" HorizontalOptions="Fill" Aspect="AspectFill"></Image>
                     <BoxView Grid.Column="0" Grid.Row="1" Color="#FFF" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
                     <Frame x:Name="imgPerfil" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Padding="0" BackgroundColor="#FFF" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="220" HeightRequest="220" CornerRadius="220" HasShadow="True">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-
+                        
                         <controls:CircleImage x:Name="imgFoto" WidthRequest="400" Source="userperfil" Aspect="AspectFill"></controls:CircleImage>
                     </Frame>
                 </Grid>

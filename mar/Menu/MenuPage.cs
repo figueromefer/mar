@@ -22,7 +22,7 @@ namespace mar
                 Padding = new Thickness(20, 40, 20, 50),
             };
             var imagen = new Image() { Source = ImageSource.FromFile("title.png"), WidthRequest=250, Aspect = Aspect.AspectFit };
-            var stackimg = new StackLayout { BackgroundColor = Color.FromHex("#3D454C"), HorizontalOptions = LayoutOptions.FillAndExpand, Children = { imagen } };
+            var stackimg = new StackLayout { Padding = new Thickness(0,35,0,50),BackgroundColor = Color.FromHex("#3D454C"), HorizontalOptions = LayoutOptions.FillAndExpand, Children = { imagen } };
             layout.Children.Add(stackimg);
             Label legal = new Label() { Margin = new Thickness(10, 50, 0, 10), TextColor = Color.White, FontSize = 16, Text = "Legal" };
             Label acerca = new Label() { Margin = new Thickness(10, 0, 0, 30), TextColor = Color.White, FontSize = 16, Text = "Acerca de" };
