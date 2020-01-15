@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
 
 namespace mar
 {
@@ -16,11 +17,14 @@ namespace mar
     {
         string categoria = "Camarones";
         List<string> carrito = new List<string>();
+        
+
         public Home()
         {
             InitializeComponent();
             NavigationPage.SetTitleIconImageSource(this, "title2.png");
-            Cargar_productos();
+            
+            
             vercarrito.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() => {
@@ -37,10 +41,74 @@ namespace mar
             });
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //your code here;
+            Cargar_carrito_anterior();
+        }
+
+        public async void Cargar_carrito_anterior()
+        {
+            try
+            {
+                UserDialogs.Instance.ShowLoading("Actualizando carrito");
+                carrito.Clear();
+                if (Settings.Pedido != "")
+                {
+                    string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/carrito.php?&pedido={0}", Settings.Pedido);
+                    var response2 = await httpRequest(uriString2);
+                    List<class_carrito> valor = new List<class_carrito>();
+                    valor = procesarcarrito(response2);
+                    for (int i = 0; i < valor.Count(); i++)
+                    {
+                        string stringproducto = valor.ElementAt(i).productoid + "|" + valor.ElementAt(i).cantidad + "|" + valor.ElementAt(i).precio;
+                        carrito.Add(stringproducto);
+                    }
+                    actualizartotal();
+                    
+                }
+                Cargar_productos();
+                UserDialogs.Instance.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                Cargar_productos();
+            }
+        }
+
+        public List<class_carrito> procesarcarrito(string respuesta)
+        {
+            List<class_carrito> items = new List<class_carrito>();
+            if (respuesta == "0")
+            { }
+            else
+            {
+                var doc = XDocument.Parse(respuesta);
+                if (doc.Root != null)
+                {
+                    items = (from r in doc.Root.Elements("valor")
+                             select new class_carrito
+                             {
+                                 id = WebUtility.UrlDecode((string)r.Element("id")),
+                                 productoid = WebUtility.UrlDecode((string)r.Element("productoid")),
+                                 titulo = WebUtility.UrlDecode((string)r.Element("titulo")),
+                                 descripcion = WebUtility.UrlDecode((string)r.Element("descripcion")),
+                                 foto = WebUtility.UrlDecode((string)r.Element("foto")),
+                                 precio = WebUtility.UrlDecode((string)r.Element("precio")),
+                                 cantidad = WebUtility.UrlDecode((string)r.Element("cantidad")),
+                             }).ToList();
+                }
+            }
+            return items;
+        }
+
         public async void Cargar_productos()
         {
             try
             {
+                stkproductos.Children.Clear();
                 string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
                 var response2 = await httpRequest(uriString2);
                 List<class_productos> valor = new List<class_productos>();
@@ -68,11 +136,20 @@ namespace mar
                         }),
                         NumberOfTapsRequired = 1
                     });
-                    Label cantidad = new Label() { Text = "0", FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
-
-                    Label mas1 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 9, 0, 0) };
-                    Label mas2 = new Label() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 10, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -6, 0, 0) };
-                    StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas1, mas2 } };
+                    string cantidadactual = "0";
+                    for(int j = 0; j < carrito.Count; j++)
+                    {
+                        if(carrito[j].Split('|')[0] == valor.ElementAt(i).id)
+                        {
+                            cantidadactual = carrito[j].Split('|')[1];
+                        }
+                    }
+                    
+                    Label cantidad = new Label() { Text = cantidadactual, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
+                    BoxView mas4 = new BoxView() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 10, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 9, 0, 0) };
+                    BoxView mas3 = new BoxView() { BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 10, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -6, 0, 0) };
+                    
+                    StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas4, mas3 } };
                     Frame framemas = new Frame() { BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 20, HeightRequest = 20, CornerRadius = 20, IsClippedToBounds = true, Margin = new Thickness(10, 0, 10, 0), Content = stackmas };
                     framemas.GestureRecognizers.Add(new TapGestureRecognizer
                     {
@@ -204,7 +281,7 @@ namespace mar
                         stringproductos = stringproductos+"*"+ carrito[i];
                     }
                 }
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/subircarrito.php?total={0}&productos={1}&usuario={2}", preciototal, stringproductos, Settings.Idusuario);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/subircarrito.php?total={0}&productos={1}&usuario={2}&pedidoant={3}", preciototal, stringproductos, Settings.Idusuario, Settings.Pedido);
                 var response2 = await httpRequest(uriString2);
                 if(response2 != "0" && response2 != "")
                 {

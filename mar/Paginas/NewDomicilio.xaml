@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="mar.NewDomicilio" xmlns:behaviors="clr-namespace:mar.FastEntry">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#FFF">
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="40, 50, 40, 50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" Spacing="15">
+                    <Label Text="Nuevo domicilio" TextColor="#979797" Font="Bold, 18" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Entry Keyboard="Chat" x:Name="entrydomicilio" Placeholder="Domicilio" HorizontalOptions="FillAndExpand">
+                            
+                        </Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Número" TextColor="#979797" Font="Bold, 18" />
+                            <Entry Keyboard="Numeric" x:Name="entrynumero" Placeholder="123">
+                            </Entry>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Código postal" TextColor="#979797" Font="Bold, 18" />
+                            <Picker x:Name="cp" FontSize="18" SelectedIndexChanged="cp_SelectedIndexChanged">
+                            </Picker>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Colonia" TextColor="#979797" Font="Bold, 18" />
+                             <Picker x:Name="colonia" FontSize="18">
+                            </Picker>
+                        </StackLayout>
+                    </StackLayout>
+                     <Label Text="Si tu código postal o colonia no se encuentran entre las opciones disponibles, escribenos a contacto@laporciondelmar.com para consultar disponibilidad de entrega en tu domicilio. " TextColor="#979797" Font="Bold, 14" Margin="25,40,25,40" />
+                </StackLayout>
+                <Button x:Name="btnSave" Text="Guardar" Clicked="Guardar_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10">
+                </Button>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

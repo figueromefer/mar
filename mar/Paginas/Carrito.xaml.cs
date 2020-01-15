@@ -43,12 +43,12 @@ namespace mar
                     Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
                     Label precio = new Label() { Text = "$" + valor.ElementAt(i).precio, ClassId = valor.ElementAt(i).id, FontSize = 12, TextColor = Color.FromHex("#CF7667"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
-                    subtotal = subtotal + double.Parse(valor.ElementAt(i).precio);
+                    subtotal = subtotal + (double.Parse(valor.ElementAt(i).precio) * double.Parse(valor.ElementAt(i).cantidad));
                     Label lblcantidad = new Label() { Text="Cantidad: ", FontSize = 12, TextColor=Color.FromHex("#888888"), HorizontalOptions = LayoutOptions.FillAndExpand, HorizontalTextAlignment = TextAlignment.End };
                     Label cantidad = new Label() { Text = valor.ElementAt(i).cantidad, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
-                    Label mas1 = new Label() {  BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 15, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 13, 0, 0) };
-                    Label mas2 = new Label() {  BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 15, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -9, 0, 0) };
+                    BoxView mas1 = new BoxView() {  BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 2, WidthRequest = 15, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, 13, 0, 0) };
+                    BoxView mas2 = new BoxView() {  BackgroundColor = Color.FromHex("#CF7667"), HorizontalOptions = LayoutOptions.CenterAndExpand, HeightRequest = 15, WidthRequest = 2, VerticalOptions = LayoutOptions.Center, Margin = new Thickness(0, -9, 0, 0) };
                     StackLayout stackmas = new StackLayout() { Spacing = 0, Children = { mas1, mas2 } };
                     Frame frameequis = new Frame() { Rotation = 45,BorderColor = Color.FromHex("#CF7667"), Padding = new Thickness(0), WidthRequest = 30, HeightRequest = 30, CornerRadius = 30, IsClippedToBounds = true, Margin = new Thickness(10, -10, 10, 0), Content = stackmas };
                     frameequis.GestureRecognizers.Add(new TapGestureRecognizer
@@ -76,7 +76,7 @@ namespace mar
             }
             catch (Exception ex)
             {
-
+                LblSubtotal.Text = "$ 0";
             }
             UserDialogs.Instance.HideLoading();
         }

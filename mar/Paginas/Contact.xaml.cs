@@ -16,5 +16,17 @@ namespace mar
         {
             InitializeComponent();
         }
+
+        public async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            try
+            {
+                Device.OpenUri(new Uri("mailto:contacto@laporciondelmar.com"));
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

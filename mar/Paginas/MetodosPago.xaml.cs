@@ -15,6 +15,9 @@ namespace mar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MetodosPago : ContentPage
     {
+        string domicilioseleccionado = "";
+        string tarjetaseleccionada = "";
+
         public MetodosPago()
         {
             InitializeComponent();
@@ -33,7 +36,9 @@ namespace mar
             stktarjetas.Children.Clear();
             try
             {
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?&usuario={0}", Settings.Idusuario);
+                Random random = new Random();
+                int num = random.Next(1000);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}", Settings.Idusuario, num.ToString());
                 var response2 = await httpRequest(uriString2);
                 List<class_tarjeta> valor = new List<class_tarjeta>();
                 valor = procesartarjeta(response2);
@@ -46,7 +51,15 @@ namespace mar
                     Label lblnumero = new Label() { Text = "xxxx xxxx xxxx "+valor.ElementAt(i).numero.Substring(inicio, 5), TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
                     StackLayout stackdatos = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { lblnombre, lblnumero} };
 
-                    CheckBox checktarjeta = new CheckBox() { HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked= false };
+                    CheckBox checktarjeta = new CheckBox() { ClassId = valor.ElementAt(i).id, HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked= false };
+                    checktarjeta.CheckedChanged += (sender, e) =>
+                    {
+                        if (checktarjeta.IsChecked)
+                        {
+                            tarjetaseleccionada = checktarjeta.ClassId;
+                            limpiarcheckstarjetas();
+                        }
+                    };
                     Frame framecheck = new Frame() { ClassId=valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5),  CornerRadius = 50,  Content = checktarjeta };
                     framecheck.GestureRecognizers.Add(new TapGestureRecognizer
                     {
@@ -74,6 +87,46 @@ namespace mar
             }
         }
 
+        public async void limpiarcheckstarjetas()
+        {
+            try
+            {
+                for (int i = 0; i < stktarjetas.Children.Count; i++)
+                {
+                    StackLayout stacktarjeta = (StackLayout)stktarjetas.Children[i];
+                    CheckBox checkbox1 = (CheckBox)((Frame)stacktarjeta.Children[1]).Content;
+                    if(checkbox1.ClassId != tarjetaseleccionada)
+                    {
+                        checkbox1.IsChecked = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public async void limpiarchecksdomicilios()
+        {
+            try
+            {
+                for (int i = 0; i < stkdomicilios.Children.Count; i++)
+                {
+                    StackLayout stackdomicilio = (StackLayout)stkdomicilios.Children[i];
+                    CheckBox checkbox1 = (CheckBox)((Frame)stackdomicilio.Children[1]).Content;
+                    if (checkbox1.ClassId != domicilioseleccionado)
+                    {
+                        checkbox1.IsChecked = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         public async void cargardomicilios()
         {
             stkdomicilios.Children.Clear();
@@ -93,8 +146,16 @@ namespace mar
                     Label lblcp = new Label() { Text = valor.ElementAt(i).cp, TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
                     StackLayout stackdatos = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { lblnombre, lblnumero, lblcolonia, lblcp } };
 
-                    CheckBox checktarjeta = new CheckBox() { HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked = false };
-                    Frame framecheck = new Frame() { ClassId = valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5), CornerRadius = 50, Content = checktarjeta };
+                    CheckBox checkdomicilio = new CheckBox() { HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked = false };
+                    checkdomicilio.CheckedChanged += (sender, e) =>
+                    {
+                        if (checkdomicilio.IsChecked)
+                        {
+                            domicilioseleccionado = checkdomicilio.ClassId;
+                            limpiarchecksdomicilios();
+                        }
+                    };
+                    Frame framecheck = new Frame() { ClassId = valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5), CornerRadius = 50, Content = checkdomicilio };
                     framecheck.GestureRecognizers.Add(new TapGestureRecognizer
                     {
                         Command = new Command(() =>
@@ -195,17 +256,25 @@ namespace mar
 
         async void ntarjeta_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            await Navigation.PushAsync(new NewCard());
         }
 
         async void ndomicilio_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            await Navigation.PushAsync(new NewDomicilio());
         }
 
         async void continuar_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            if(tarjetaseleccionada != "" && domicilioseleccionado != "")
+            {
+                await Navigation.PushAsync(new Resumen(tarjetaseleccionada, domicilioseleccionado));
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("Tarjeta o domicilio no seleccionado.");
+            }
+            
         }
     }
 }

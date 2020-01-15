@@ -14,7 +14,7 @@
                     <Label Text="Número de la tarjeta" TextColor="#979797" Font="Bold, 18"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Image Source="card" VerticalOptions="Center" HorizontalOptions="Start"></Image>
-                        <Entry Keyboard="Numeric" Placeholder="xxx xxx xxx xxx" HorizontalOptions="FillAndExpand">
+                        <Entry Keyboard="Numeric" x:Name="entrynumero" Placeholder="xxx xxx xxx xxx" HorizontalOptions="FillAndExpand"  FontSize="18">
                             <Entry.Behaviors>
                                 <behaviors:XamarinFastEntryBehaviour Mask="#### #### #### ####" MaxLength="19"/>
                             </Entry.Behaviors>
@@ -24,11 +24,11 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label Text="Fecha MM/AA" TextColor="#979797" Font="Bold, 18"/>
-                            <DatePicker BackgroundColor="#FFF" Format="MM/yy"></DatePicker>
+                            <DatePicker BackgroundColor="#FFF"  FontSize="18" x:Name="datefecha" Format="MM/yy"></DatePicker>
                         </StackLayout>
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label Text="CVC/CVV" TextColor="#979797" Font="Bold, 18"/>
-                            <Entry Keyboard="Numeric" Placeholder="xxx">
+                            <Entry Keyboard="Numeric" x:Name="entrycvv" Placeholder="xxx" FontSize="18">
                                 <Entry.Behaviors>
                                     <behaviors:XamarinFastEntryBehaviour Mask="####" MaxLength="3"/>
                                 </Entry.Behaviors>
@@ -37,17 +37,13 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Nombre" TextColor="#979797" Font="Bold, 18"/>
-                            <Entry Placeholder="Nombre"></Entry>
-                        </StackLayout>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Apellido" TextColor="#979797" Font="Bold, 18"/>
-                            <Entry Placeholder="Apellido"></Entry>
+                            <Label Text="Nombre en la tarjeta" TextColor="#979797" Font="Bold, 18"/>
+                            <Entry Placeholder="Nombre" x:Name="entrynombre"  FontSize="18"></Entry>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
-                <Button x:Name="btnSave" Text="Guardar" VerticalOptions="EndAndExpand" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"></Button>
+                <Button x:Name="btnSave" Text="Guardar"  Clicked="Guardar_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"></Button>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
