@@ -28,5 +28,11 @@ namespace mar
             get => AppSettings.GetValueOrDefault(nameof(Pedido), string.Empty);
             set => AppSettings.AddOrUpdateValue(nameof(Pedido), value);
         }
+
+        public static string Categoria
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Categoria), string.Empty);
+            set => AppSettings.AddOrUpdateValue(nameof(Categoria), value);
+        }
     }
 }

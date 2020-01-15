@@ -39,6 +39,83 @@ namespace mar
                 }),
                 NumberOfTapsRequired = 1
             });
+            catcamarones.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Settings.Categoria = "Camarones";
+                        catcamarones.Children[1].BackgroundColor = Color.FromHex("#CF7667");
+                        catpescado.Children[1].BackgroundColor = Color.Transparent;
+                        catpulpo.Children[1].BackgroundColor = Color.Transparent;
+                        catoysteria.Children[1].BackgroundColor = Color.Transparent;
+
+                        Cargar_carrito_anterior();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
+            catpescado.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Settings.Categoria = "Pescado";
+                        catpescado.Children[1].BackgroundColor = Color.FromHex("#CF7667");
+                        catcamarones.Children[1].BackgroundColor = Color.Transparent;
+                        catpulpo.Children[1].BackgroundColor = Color.Transparent;
+                        catoysteria.Children[1].BackgroundColor = Color.Transparent;
+                        Cargar_carrito_anterior();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
+            catpulpo.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Settings.Categoria = "Pulpo";
+                        catpulpo.Children[1].BackgroundColor = Color.FromHex("#CF7667");
+                        catcamarones.Children[1].BackgroundColor = Color.Transparent;
+                        catpescado.Children[1].BackgroundColor = Color.Transparent;
+                        catoysteria.Children[1].BackgroundColor = Color.Transparent;
+                        Cargar_carrito_anterior();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
+            catoysteria.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    try
+                    {
+                        Settings.Categoria = "Oysteria";
+                        catoysteria.Children[1].BackgroundColor = Color.FromHex("#CF7667");
+                        catcamarones.Children[1].BackgroundColor = Color.Transparent;
+                        catpescado.Children[1].BackgroundColor = Color.Transparent;
+                        catpulpo.Children[1].BackgroundColor = Color.Transparent;
+                        Cargar_carrito_anterior();
+                    }
+                    catch (Exception ex)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
+                    }
+                }),
+                NumberOfTapsRequired = 1
+            });
         }
 
         protected override void OnAppearing()
@@ -52,6 +129,10 @@ namespace mar
         {
             try
             {
+                if (Settings.Categoria != "")
+                {
+                    categoria = Settings.Categoria;
+                }
                 UserDialogs.Instance.ShowLoading("Actualizando carrito");
                 carrito.Clear();
                 if (Settings.Pedido != "")
@@ -108,6 +189,7 @@ namespace mar
         {
             try
             {
+                LblTitulo.Text = categoria;
                 stkproductos.Children.Clear();
                 string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
                 var response2 = await httpRequest(uriString2);
@@ -115,7 +197,12 @@ namespace mar
                 valor = procesar2(response2);
                 for (int i = 0; i < valor.Count(); i++)
                 {
-                    Image imagenproducto = new Image() { Source = ImageSource.FromFile("proddemo.png"), WidthRequest = 100 };
+                    Image imagenproducto = new Image() { Source = new UriImageSource
+                        {
+                            Uri = new Uri(valor.ElementAt(i).foto),
+                            CachingEnabled = true,
+                        },
+ WidthRequest = 100 };
                     Label tituloproducto = new Label() { Text = valor.ElementAt(i).titulo, FontSize = 16, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Bold", "Lato-Bold.ttf#Lato-Bold", null) };
                     Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 

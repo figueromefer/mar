@@ -1,23 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Home" BackgroundColor="White">
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="#3D454C">
                 <Image Source="imagotipo.png" WidthRequest="30" Margin="15,5,5,5" />
                 <Label FontSize="14" TextColor="#CF7667" Margin="0,10,25,5" Text="Menú">
                 </Label>
-                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0" x:Name="catcamarones">
                     <Label FontSize="14" TextColor="#FFFFFF" Text="Camarón" VerticalOptions="CenterAndExpand">
                     </Label>
                     <Label HeightRequest="3" BackgroundColor="#CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
-                    <Label FontSize="14" TextColor="#D4D4D4" Text="Atún" VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0" x:Name="catpescado">
+                    <Label FontSize="14" TextColor="#D4D4D4" Text="Pescado" VerticalOptions="CenterAndExpand">
                     </Label>
                     <Label HeightRequest="3" BackgroundColor="#00CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0">
-                    <Label FontSize="14" TextColor="#D4D4D4" Text="Pescado" VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0" x:Name="catpulpo">
+                    <Label FontSize="14" TextColor="#D4D4D4" Text="Pulpo" VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label HeightRequest="3" BackgroundColor="#00CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start" Spacing="0" Margin="10,0,10,0" x:Name="catoysteria">
+                    <Label FontSize="14" TextColor="#D4D4D4" Text="Oysteria" VerticalOptions="CenterAndExpand">
                     </Label>
                     <Label HeightRequest="3" BackgroundColor="#00CF7667" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
                 </StackLayout>
