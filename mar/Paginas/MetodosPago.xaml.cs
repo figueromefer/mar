@@ -61,21 +61,7 @@ namespace mar
                         }
                     };
                     Frame framecheck = new Frame() { ClassId=valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5),  CornerRadius = 50,  Content = checktarjeta };
-                    framecheck.GestureRecognizers.Add(new TapGestureRecognizer
-                    {
-                        Command = new Command(() =>
-                        {
-                            try
-                            {
-                                seleccionartarjeta(framecheck.ClassId);
-                            }
-                            catch (Exception ex)
-                            {
-                                Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
-                            }
-                        }),
-                        NumberOfTapsRequired = 1
-                    });
+                    
 
                     StackLayout stacktarjeta = new StackLayout() { Orientation = StackOrientation.Horizontal, BackgroundColor = Color.FromHex("#20C4C4C4"), Padding = new Thickness(40, 10, 20, 10), HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { stackdatos , framecheck } };
                     stktarjetas.Children.Add(stacktarjeta);
@@ -146,7 +132,7 @@ namespace mar
                     Label lblcp = new Label() { Text = valor.ElementAt(i).cp, TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
                     StackLayout stackdatos = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { lblnombre, lblnumero, lblcolonia, lblcp } };
 
-                    CheckBox checkdomicilio = new CheckBox() { HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked = false };
+                    CheckBox checkdomicilio = new CheckBox() { ClassId = valor.ElementAt(i).id, HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked = false };
                     checkdomicilio.CheckedChanged += (sender, e) =>
                     {
                         if (checkdomicilio.IsChecked)
@@ -156,21 +142,7 @@ namespace mar
                         }
                     };
                     Frame framecheck = new Frame() { ClassId = valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5), CornerRadius = 50, Content = checkdomicilio };
-                    framecheck.GestureRecognizers.Add(new TapGestureRecognizer
-                    {
-                        Command = new Command(() =>
-                        {
-                            try
-                            {
-                                seleccionartarjeta(framecheck.ClassId);
-                            }
-                            catch (Exception ex)
-                            {
-                                Application.Current.MainPage.DisplayAlert("Ayuda", ex.Message, "OK");
-                            }
-                        }),
-                        NumberOfTapsRequired = 1
-                    });
+                    
 
                     StackLayout stackdomicilio = new StackLayout() { Orientation = StackOrientation.Horizontal, BackgroundColor = Color.FromHex("#20C4C4C4"), Padding = new Thickness(40, 10, 20, 10), HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { stackdatos, framecheck } };
                     stkdomicilios.Children.Add(stackdomicilio);
@@ -182,17 +154,7 @@ namespace mar
             }
         }
 
-        public async void seleccionartarjeta(string id)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+      
 
         public async Task<string> httpRequest(string url)
         {
@@ -266,7 +228,7 @@ namespace mar
 
         async void continuar_Clicked(object sender, System.EventArgs e)
         {
-            if(tarjetaseleccionada != "" && domicilioseleccionado != "")
+            if(tarjetaseleccionada != "" || domicilioseleccionado != "")
             {
                 await Navigation.PushAsync(new Resumen(tarjetaseleccionada, domicilioseleccionado));
             }

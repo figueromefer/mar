@@ -15,21 +15,26 @@ namespace mar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Resumen : ContentPage
     {
+        string dom = "";
+        string tar = "";
         public Resumen(string tarjeta, string domicilio)
         {
+            Title = "Resumen";
             InitializeComponent();
-            cargartarjeta(tarjeta);
-            cargardomicilio(domicilio);
+            dom = domicilio;
+            tar = tarjeta;
+            cargartarjeta();
+            cargardomicilio();
             cargarpedido();
         }
 
-        public async void cargartarjeta(string tarjeta)
+        public async void cargartarjeta()
         {
             try
             {
                 Random random = new Random();
                 int num = random.Next(1000);
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}&id={2}", Settings.Idusuario, num.ToString(), tarjeta);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}&id={2}", Settings.Idusuario, num.ToString(), tar);
                 var response2 = await httpRequest(uriString2);
                 List<class_tarjeta> valor = new List<class_tarjeta>();
                 valor = procesartarjeta(response2);
@@ -46,13 +51,13 @@ namespace mar
             }
         }
 
-        public async void cargardomicilio(string domicilio)
+        public async void cargardomicilio()
         {
             try
             {
                 Random random = new Random();
                 int num = random.Next(1000);
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}&id={2}", Settings.Idusuario, num.ToString(), domicilio);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/domicilios.php?usuario={0}&rnd={1}&id={2}", Settings.Idusuario, num.ToString(), dom);
                 var response2 = await httpRequest(uriString2);
                 List<class_domicilios> valor = new List<class_domicilios>();
                 valor = procesardomicilio(response2);

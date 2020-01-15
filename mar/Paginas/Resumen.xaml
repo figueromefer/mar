@@ -5,53 +5,51 @@
             <!--<Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>-->
             <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <StackLayout Orientation="Vertical" Spacing="15">
-                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="stack1">
-                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="Tarjeta" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                </Label>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Frame CornerRadius="5" HasShadow="true" Padding="5" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
-                                    <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                                <Label Text="" x:Name="nombretarjeta" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                                </Label>
-                                                <Label Text="" x:Name="numerotarjeta" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                                </Label>
-                                            </StackLayout>
-                                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                                <Image Source="whitechecked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                                </Image>
-                                            </Frame>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="stack1">
+                        <StackLayout Orientation="Horizontal" Padding="20, 10, 20, 10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="Tarjeta" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Frame CornerRadius="5" HasShadow="true" Padding="2" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                                <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Label Text="" x:Name="nombretarjeta" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                            </Label>
+                                            <Label Text="" x:Name="numerotarjeta" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                            </Label>
                                         </StackLayout>
+                                        <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
+                                            <Image Source="whitechecked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            </Image>
+                                        </Frame>
                                     </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="Domicilio" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20, 0, 20, 0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Domicilio" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="" x:Name="lbldomicilio" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </Label>
+                                <Label Text="" x:Name="lblnumero" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </Label>
+                                <Label Text="" x:Name="lblcp" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                </Label>
+                                <Label Text="" x:Name="lblcolonia" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
                                 </Label>
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Label Text="" x:Name="lbldomicilio" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                    </Label>
-                                    <Label Text="" x:Name="lblnumero" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                    </Label>
-                                    <Label Text="" x:Name="lblcp" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                    </Label>
-                                    <Label Text="" x:Name="lblcolonia" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                    </Label>
-                                </StackLayout>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="Pedido" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                </Label>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <StackLayout x:Name="stkpedidos" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Pedido" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                            <StackLayout x:Name="stkpedidos" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
