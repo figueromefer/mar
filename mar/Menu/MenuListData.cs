@@ -22,6 +22,12 @@ namespace mar
 
             this.Add(new MenuItem()
             {
+                Titulo = "Promociones",
+                TargetType = typeof(Promocion)
+            });
+
+            this.Add(new MenuItem()
+            {
                 Titulo = "Ayuda",
                 TargetType = typeof(Contact)
             });
