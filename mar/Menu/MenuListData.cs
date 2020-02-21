@@ -28,6 +28,18 @@ namespace mar
 
             this.Add(new MenuItem()
             {
+                Titulo = "Tips",
+                TargetType = typeof(Tips)
+            });
+
+            this.Add(new MenuItem()
+            {
+                Titulo = "Pedidos",
+                TargetType = typeof(Pedidos)
+            });
+
+            this.Add(new MenuItem()
+            {
                 Titulo = "Ayuda",
                 TargetType = typeof(Contact)
             });

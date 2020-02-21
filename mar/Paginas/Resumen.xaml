@@ -54,12 +54,25 @@
                         </StackLayout>
                     </StackLayout>
                 </ScrollView>
-                <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="End">
-                    <Label Text="Total: " TextColor="#3D454C" Font="Bold, 24" Padding="0" VerticalOptions="Center" HorizontalOptions="Start">
+                <StackLayout Orientation="Horizontal" Padding="20, 0, 20, 0" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <Label Text="Fecha de entrega: " TextColor="#3D454C" FontSize="18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
                     </Label>
-                    <Label Text="" x:Name="lbltotal" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <DatePicker DateSelected="OnDateSelected" x:Name="efecha" HorizontalOptions="End"  VerticalOptions="Center"></DatePicker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20, 0, 20, 0" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <Label Text="Hora de entrega: " TextColor="#3D454C" FontSize="18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    </Label>
+                    <Picker x:Name="phora" Title="Seleccionar hora" HorizontalOptions="End"  VerticalOptions="Center">
+                       
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 0" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <Label Text="Total: " x:Name="lblDesc" TextColor="#3D454C" Font="Bold, 24" Padding="0" VerticalOptions="Center" HorizontalOptions="Start">
+                    </Label>
+                    <Label Text="" x:Name="lbltotal"  Font="Bold, 24" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
                     </Label>
                 </StackLayout>
+                
                 <Button x:Name="btnContinuar" Clicked="continuar_Clicked" Text="Pagar" BackgroundColor="#CF7667" FontSize="16" TextColor="#FFF" VerticalOptions="End">
                 </Button>
             </StackLayout>

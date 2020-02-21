@@ -8,6 +8,7 @@ namespace mar
         public string descripcion { get; set; }
         public string precio { get; set; }
         public string foto { get; set; }
+        public string foto2 { get; set; }
         public string inventario { get; set; }
         public string categoria { get; set; }
         public string tags { get; set; }

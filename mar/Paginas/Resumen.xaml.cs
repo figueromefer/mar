@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Acr.UserDialogs;
+using Conekta.Xamarin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,39 +18,42 @@ namespace mar
     {
         string dom = "";
         string tar = "";
-        public Resumen(string tarjeta, string domicilio)
+        string token1 = "";
+        string fechaselect = "";
+        string horaselect = "";
+        string descuento = "";
+        string oxxo = "";
+
+        public Resumen(string tarjeta, string domicilio, string nombre, string numero)
         {
+            
             Title = "Resumen";
             InitializeComponent();
+            token1 = tarjeta;
             dom = domicilio;
-            tar = tarjeta;
-            cargartarjeta();
+            if(tarjeta != "OXXO")
+            {
+                nombretarjeta.Text = nombre;
+                int inicio = numero.Length - 5;
+                numerotarjeta.Text = "xxxx xxxx xxxx " + numero.Substring(inicio, 5);
+                efecha.MinimumDate = DateTime.Now;
+            }
+            else
+            {
+                oxxo = "OXXO";
+                nombretarjeta.Text = "OXXO PAY";
+                numerotarjeta.Text = "Fecha de entrega dependerá del pago.";
+                efecha.MinimumDate = DateTime.Now.AddDays(1);
+            }
+            
             cargardomicilio();
             cargarpedido();
+            
+            DateTime pickerDate = new DateTime(efecha.Date.Year, efecha.Date.Month, efecha.Date.Day);
+            filtrarhoras(pickerDate);
         }
 
-        public async void cargartarjeta()
-        {
-            try
-            {
-                Random random = new Random();
-                int num = random.Next(1000);
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}&id={2}", Settings.Idusuario, num.ToString(), tar);
-                var response2 = await httpRequest(uriString2);
-                List<class_tarjeta> valor = new List<class_tarjeta>();
-                valor = procesartarjeta(response2);
-                for (int i = 0; i < valor.Count(); i++)
-                {
-                    nombretarjeta.Text = valor.ElementAt(i).nombre;
-                    int inicio = valor.ElementAt(i).numero.Length - 5;
-                    numerotarjeta.Text = "xxxx xxxx xxxx " + valor.ElementAt(i).numero.Substring(inicio, 5);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+        
 
         public async void cargardomicilio()
         {
@@ -113,31 +117,7 @@ namespace mar
             }
         }
 
-       
-
-        public List<class_tarjeta> procesartarjeta(string respuesta)
-        {
-            List<class_tarjeta> items = new List<class_tarjeta>();
-            if (respuesta == "0")
-            { }
-            else
-            {
-                var doc = XDocument.Parse(respuesta);
-                if (doc.Root != null)
-                {
-                    items = (from r in doc.Root.Elements("valor")
-                             select new class_tarjeta
-                             {
-                                 id = WebUtility.UrlDecode((string)r.Element("id")),
-                                 nombre = WebUtility.UrlDecode((string)r.Element("nombre")),
-                                 numero = WebUtility.UrlDecode((string)r.Element("numero")),
-                                 fecha = WebUtility.UrlDecode((string)r.Element("fecha")),
-                             }).ToList();
-                }
-            }
-            return items;
-        }
-
+        
         public List<class_domicilios> procesardomicilio(string respuesta)
         {
             List<class_domicilios> items = new List<class_domicilios>();
@@ -187,16 +167,182 @@ namespace mar
             return items;
         }
 
-        public async void continuar_Clicked(object sender, EventArgs e)
+        public async void filtrarhoras(DateTime pickerDate)
         {
             try
             {
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/pagar.php?&pedido={0}", Settings.Pedido);
-                var response2 = await httpRequest(uriString2);
+                DateTime febDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                
+                if (pickerDate == febDate)
+                {
+                    phora.Items.Clear();
+                    if (pickerDate.DayOfWeek.ToString() == "Saturday")
+                    {
+                        if (DateTime.Now.Hour < 10)
+                        {
+                            phora.Items.Add("11:30 a 14:00 hrs");
+                        }
+                    }
+                    else if (pickerDate.DayOfWeek.ToString() == "Sunday")
+                    {
+
+                    }
+                    else
+                    {
+                        if (DateTime.Now.Hour < 9)
+                        {
+                            phora.Items.Add("11:00 a 13:00 hrs");
+                            phora.Items.Add("13:00 a 15:00 hrs");
+                            phora.Items.Add("15:00 a 17:00 hrs");
+                        }
+                        else if (DateTime.Now.Hour >= 9 && DateTime.Now.Hour < 11)
+                        {
+                            phora.Items.Add("13:00 a 15:00 hrs");
+                            phora.Items.Add("15:00 a 17:00 hrs");
+                        }
+                        else if (DateTime.Now.Hour >= 11 && DateTime.Now.Hour < 13)
+                        {
+                            phora.Items.Add("15:00 a 17:00 hrs");
+                        }
+                    }
+
+                }
+                else
+                {
+                    phora.Items.Clear();
+                    if (pickerDate.DayOfWeek.ToString() == "Saturday")
+                    {
+                        phora.Items.Add("9:30 a 11:30 hrs");
+                        phora.Items.Add("11:30 a 14:00 hrs");
+                    }
+                    else if (pickerDate.DayOfWeek.ToString() == "Sunday")
+                    {
+
+                    }
+                    else
+                    {
+                        phora.Items.Add("9:00 a 11:00 hrs");
+                        phora.Items.Add("11:00 a 13:00 hrs");
+                        phora.Items.Add("13:00 a 15:00 hrs");
+                        phora.Items.Add("15:00 a 17:00 hrs");
+                    }
+
+                }
             }
             catch (Exception ex)
             {
 
+            }
+            
+        }
+
+        void OnDateSelected(object sender, DateChangedEventArgs args)
+        {
+            try
+            {
+                DateTime febDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                DateTime pickerDate = new DateTime(args.NewDate.Year, args.NewDate.Month, args.NewDate.Day);
+                filtrarhoras(pickerDate);
+                fechaselect = febDate.Date.ToLongDateString();
+                TimeSpan tspan = febDate - pickerDate;
+
+                int differenceInDays = tspan.Days;
+                differenceInDays = differenceInDays * -1;
+                if(differenceInDays >= 0)
+                {
+                    if (differenceInDays == 2)
+                    {
+                        lblDesc.Text = "Total (-10%): ";
+                        double cantidad = double.Parse(lbltotal.Text);
+                        cantidad = cantidad * 0.9;
+                        lbltotal.Text = cantidad.ToString();
+                        descuento = "10";
+                    }
+                    else if (differenceInDays >= 3)
+                    {
+                        lblDesc.Text = "Total (-15%): ";
+                        double cantidad = double.Parse(lbltotal.Text);
+                        cantidad = cantidad * 0.85;
+                        lbltotal.Text = cantidad.ToString();
+                        descuento = "15";
+                    }
+                    else
+                    {
+                        lblDesc.Text = "Total: ";
+                        descuento = "0";
+                    }
+                    string differenceAsString = differenceInDays.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
+
+        }
+
+        public async void continuar_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                UserDialogs.Instance.ShowLoading("Realizando pedido");
+                if(phora.SelectedItem.ToString() != "")
+                {
+                    horaselect = phora.SelectedItem.ToString();
+                }
+                if(fechaselect != "" && horaselect != "")
+                {
+                    if(oxxo != "")
+                    {
+                        string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/nordenoxxo.php?pedido={0}&usuario={1}&domicilio={2}&descuento={3}&fechaentrega={4}&horaentrega={5}", Settings.Pedido, Settings.Idusuario, dom, descuento, fechaselect, horaselect);
+                        var response2 = await httpRequest(uriString2);
+                        string referencia = response2.Split('|')[1];
+                        string orden = response2.Split('|')[2];
+                        if (referencia != "")
+                        {
+                            string pedido = Settings.Pedido;
+                            Settings.Pedido = "";
+                            UserDialogs.Instance.HideLoading();
+                            await Navigation.PushAsync(new Gracias(dom, fechaselect, horaselect, referencia, pedido, orden));
+                        }
+                        else
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            UserDialogs.Instance.Alert("Algo salió mal al procesar el pago");
+                        }
+                    }
+                    else
+                    {
+                        string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/norden.php?token={0}&pedido={1}&usuario={2}&domicilio={3}&descuento={4}&fechaentrega={5}&horaentrega={6}", token1, Settings.Pedido, Settings.Idusuario, dom, descuento, fechaselect, horaselect);
+                        var response2 = await httpRequest(uriString2);
+                        string referencia = response2.Split('|')[1];
+                        if (referencia != "")
+                        {
+                            string pedido = Settings.Pedido;
+                            Settings.Pedido = "";
+                            UserDialogs.Instance.HideLoading();
+                            await Navigation.PushAsync(new Gracias(dom, fechaselect, horaselect, referencia, pedido));
+                        }
+                        else
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            UserDialogs.Instance.Alert("Algo salió mal al procesar el pago");
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    UserDialogs.Instance.HideLoading();
+                    UserDialogs.Instance.Alert("Selecciona una fecha y hora de entrega. Horarios de entrega L.- V 9:00 - 17:00 Sabado 9:30-14:00");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.Alert("Selecciona una fecha y hora de entrega. Horarios de entrega L.- V 9:00 - 17:00 Sabado 9:30-14:00");
             }
         }
 

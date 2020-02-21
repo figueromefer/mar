@@ -17,15 +17,15 @@
                             </Entry>
                         </StackLayout>
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Código postal" TextColor="#979797" Font="Bold, 18" />
-                            <Picker x:Name="cp" FontSize="18" SelectedIndexChanged="cp_SelectedIndexChanged">
+                            <Label Text="Colonia" TextColor="#979797" Font="Bold, 18" />
+                            <Picker x:Name="colonia" FontSize="18" SelectedIndexChanged="cp_SelectedIndexChanged">
                             </Picker>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Colonia" TextColor="#979797" Font="Bold, 18" />
-                             <Picker x:Name="colonia" FontSize="18">
+                            <Label Text="Código postal" TextColor="#979797" Font="Bold, 18" />
+                             <Picker x:Name="cp" FontSize="18">
                             </Picker>
                         </StackLayout>
                     </StackLayout>

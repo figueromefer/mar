@@ -15,9 +15,9 @@ using Acr.UserDialogs;
 namespace mar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Promocion : ContentPage
+    public partial class Tips : ContentPage
     {
-        public Promocion()
+        public Tips()
         {
             InitializeComponent();
 
@@ -31,23 +31,13 @@ namespace mar
                 Random rnd = new Random();
                 int numero = rnd.Next(1, 100);
                 stkpromociones.Children.Clear();
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/promociones.php?"+numero);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tips.php?" + numero);
                 var response2 = await httpRequest(uriString2);
                 List<class_promociones> valor = new List<class_promociones>();
                 valor = Procesar2(response2);
 
-                for (int i = 0; i < valor.Count(); i++){
-                    Image imagen = new Image(){
-                        Source = new UriImageSource
-                        {
-                            Uri = new Uri(valor.ElementAt(i).foto),
-                            CachingEnabled = true,
-                        },
-                        HorizontalOptions = LayoutOptions.FillAndExpand
-                    };
-                    
-                   
-
+                for (int i = 0; i < valor.Count(); i++)
+                {
                     Label titulo = new Label()
                     {
                         Text = valor.ElementAt(i).titulo,
@@ -66,19 +56,22 @@ namespace mar
                         VerticalOptions = LayoutOptions.Start,
                         Children = { titulo }
                     };
-                   
-                    Label descripcion = new Label() {
+
+                    Label descripcion = new Label()
+                    {
                         Text = valor.ElementAt(i).descripcion,
                         HorizontalTextAlignment = TextAlignment.Start,
                         Padding = new Thickness(20, 5, 20, 5),
-                        FontSize = 12, TextColor = Color.FromHex("#888888"),
-                        FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) 
+                        FontSize = 12,
+                        TextColor = Color.FromHex("#888888"),
+                        FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null)
                     };
 
-                    StackLayout stackbaner = new StackLayout() { 
+                    StackLayout stackbaner = new StackLayout()
+                    {
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         VerticalOptions = LayoutOptions.Start,
-                        Children = { titulohead, imagen, descripcion } 
+                        Children = { titulohead, descripcion }
                     };
 
                     stkpromociones.Children.Add(stackbaner);
@@ -106,7 +99,6 @@ namespace mar
                                  id = WebUtility.UrlDecode((string)r.Element("id")),
                                  titulo = WebUtility.UrlDecode((string)r.Element("titulo")),
                                  descripcion = WebUtility.UrlDecode((string)r.Element("descripcion")),
-                                 foto = WebUtility.UrlDecode((string)r.Element("foto")),
                              }).ToList();
                 }
             }

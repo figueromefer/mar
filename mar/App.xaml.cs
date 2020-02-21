@@ -15,7 +15,8 @@ namespace mar
             }
             else
             {
-                MainPage = new NavigationPage(new RootPage());
+               MainPage = new NavigationPage(new RootPage());
+               //MainPage = new NavigationPage(new Pruebas());
             }
             
         }

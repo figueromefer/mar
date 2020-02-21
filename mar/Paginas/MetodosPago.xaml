@@ -1,49 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.MetodosPago" BackgroundColor="#3D454C">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:behaviors="clr-namespace:mar.FastEntry" mc:Ignorable="d" x:Class="mar.MetodosPago" BackgroundColor="#3D454C">
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="#3D454C">
             <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,30,0,30">
-                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Tarjeta" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                        <StackLayout Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="Tarjeta" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
                             </Label>
-                            <Button x:Name="btnNuevaTarjeta" Clicked="ntarjeta_Clicked" Text="Nueva Tarjeta" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10" VerticalOptions="Start" Padding="10,0,10,0">
-                            </Button>
+                            <Label Text="Por motivos de seguridad, no se almacena ningún dato de tu tarjeta." TextColor="#FFF" Font="Bold, 14" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            </Label>
                         </StackLayout>
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="stktarjetas">
-                            
-                        </StackLayout>
-                       <!---
-                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="Efectivo" TextColor="#FFF" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                                </Label>
+                            <StackLayout Spacing="15"  Padding="20, 10, 20, 10" BackgroundColor="White">
+                                <Label Text="Número de la tarjeta" TextColor="#979797" Font="Bold, 18"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <Entry Keyboard="Numeric" x:Name="entrynumero" Placeholder="xxxx xxxx xxxx xxxx" HorizontalOptions="FillAndExpand"  FontSize="18" TextColor="Black" PlaceholderColor="Black">
+                                        <Entry.Behaviors>
+                                            <behaviors:XamarinFastEntryBehaviour Mask="#### #### #### ####" MaxLength="19"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Label Text="Fecha MM/AA" TextColor="#979797" Font="Bold, 18"/>
+                                        <DatePicker BackgroundColor="#FFF"  FontSize="18" x:Name="datefecha" Format="MM/yy"></DatePicker>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Label Text="CVC/CVV" TextColor="#979797" Font="Bold, 18"/>
+                                        <Entry Keyboard="Numeric" x:Name="entrycvv" Placeholder="xxx" FontSize="18">
+                                            <Entry.Behaviors>
+                                                <behaviors:XamarinFastEntryBehaviour Mask="####" MaxLength="3"/>
+                                            </Entry.Behaviors>
+                                        </Entry>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Label Text="Nombre en la tarjeta" TextColor="#979797" Font="Bold, 18"/>
+                                        <Entry Placeholder="Nombre" x:Name="entrynombre"  FontSize="18"></Entry>
+                                    </StackLayout>
+                                </StackLayout>
                             </StackLayout>
-                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667" IsChecked="false">
-                                </CheckBox>
-                            </Frame>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="OXXO PAY" TextColor="#FFF" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                                </Label>
-                            </StackLayout>
-                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="Center" BackgroundColor="Transparent">
-                                <CheckBox HorizontalOptions="End" Color="#CF7667" IsChecked="false">
-                                </CheckBox>
-                            </Frame>
-                        </StackLayout>
-                        -->
-                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label Text="Domicilio" TextColor="#FFF" Font="Bold, 18" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
                             </Label>
                             <Button x:Name="btnNuevoDomicilio" Clicked="ndomicilio_Clicked" Text="Nuevo Domicilio" BackgroundColor="#CF7667" Font="Normal, 16" TextColor="#FFF" CornerRadius="10" VerticalOptions="Start" Padding="10,0,10,0">
                             </Button>
                         </StackLayout>
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="stkdomicilios">
-                            
+
                         </StackLayout>
                     </StackLayout>
                 </ScrollView>

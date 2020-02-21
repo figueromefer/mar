@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Gracias">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#FFF">
+            <!--<Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>-->
+            <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="stack1">
+                        <Label Text="GRACIAS POR SU COMPRA" TextColor="#CF7667" Font="Bold, 28" Padding="20" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                        </Label>
+                        <StackLayout Orientation="Vertical" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="header">
+                            <Label Text="Orden" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout BackgroundColor="#20C4C4C4" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="" x:Name="lblreferencia" TextColor="#CF7667" Font="Bold, 16" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Label Text="" x:Name="lblfecha" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Label Text="" x:Name="lblhora" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="Domicilio" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout BackgroundColor="#20C4C4C4" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="" x:Name="lbldomicilio" TextColor="#3D454C" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Label Text="" x:Name="lblnumero" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Label Text="" x:Name="lblcp" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                            <Label Text="" x:Name="lblcolonia" TextColor="#3D454C" Font="Bold, 12" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Label Text="Pedido" TextColor="#3D454C" Font="Bold, 18" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <StackLayout x:Name="stkpedidos" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            </StackLayout>
+                        </StackLayout>
+                        <Button x:Name="btnContinuar" Clicked="btnContinuar_Clicked" Text="CONTINUAR" BackgroundColor="#CF7667" FontSize="16" TextColor="#FFF" VerticalOptions="EndAndExpand">
+                </Button>
+                    </StackLayout>
+
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

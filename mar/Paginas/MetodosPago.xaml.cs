@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Acr.UserDialogs;
+using Conekta.Xamarin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,56 +17,42 @@ namespace mar
     public partial class MetodosPago : ContentPage
     {
         string domicilioseleccionado = "";
-        string tarjetaseleccionada = "";
+        string oxxoseleccionado = "";
 
         public MetodosPago()
         {
             InitializeComponent();
+            cargaroxxo();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             //your code here;
-            cargartarjetas();
             cargardomicilios();
+            
         }
 
-        public async void cargartarjetas()
+        public async void cargaroxxo()
         {
-            stktarjetas.Children.Clear();
             try
             {
-                Random random = new Random();
-                int num = random.Next(1000);
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/tarjetas.php?usuario={0}&rnd={1}", Settings.Idusuario, num.ToString());
-                var response2 = await httpRequest(uriString2);
-                List<class_tarjeta> valor = new List<class_tarjeta>();
-                valor = procesartarjeta(response2);
-                for (int i = 0; i < valor.Count(); i++)
+                Label lblnombre = new Label() { Text = "Pago en oxxo", TextColor = Color.White, FontSize = 18, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
+                Label lblnumero = new Label() { Text = "Sin entrega el mismo día", TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
+                StackLayout stackdatos = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { lblnombre, lblnumero } };
+
+                CheckBox checkdomicilio = new CheckBox() { ClassId = "OXXO", HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked = false };
+                checkdomicilio.CheckedChanged += (sender, e) =>
                 {
-
-
-                    Label lblnombre = new Label() { Text = valor.ElementAt(i).nombre, TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
-                    int inicio = valor.ElementAt(i).numero.Length - 5;
-                    Label lblnumero = new Label() { Text = "xxxx xxxx xxxx "+valor.ElementAt(i).numero.Substring(inicio, 5), TextColor = Color.White, FontSize = 12, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start };
-                    StackLayout stackdatos = new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { lblnombre, lblnumero} };
-
-                    CheckBox checktarjeta = new CheckBox() { ClassId = valor.ElementAt(i).id, HorizontalOptions = LayoutOptions.End, Color = Color.FromHex("#CF7667"), IsChecked= false };
-                    checktarjeta.CheckedChanged += (sender, e) =>
+                    if (checkdomicilio.IsChecked)
                     {
-                        if (checktarjeta.IsChecked)
-                        {
-                            tarjetaseleccionada = checktarjeta.ClassId;
-                            limpiarcheckstarjetas();
-                        }
-                    };
-                    Frame framecheck = new Frame() { ClassId=valor.ElementAt(i).id, BackgroundColor = Color.Transparent, Padding = new Thickness(5),  CornerRadius = 50,  Content = checktarjeta };
-                    
-
-                    StackLayout stacktarjeta = new StackLayout() { Orientation = StackOrientation.Horizontal, BackgroundColor = Color.FromHex("#20C4C4C4"), Padding = new Thickness(40, 10, 20, 10), HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { stackdatos , framecheck } };
-                    stktarjetas.Children.Add(stacktarjeta);
-                }
+                        oxxoseleccionado = checkdomicilio.ClassId;
+                        limpiartarjeta();
+                    }
+                };
+                Frame framecheck = new Frame() { ClassId = "OXXO", BackgroundColor = Color.Transparent, Padding = new Thickness(5), CornerRadius = 50, Content = checkdomicilio };
+                StackLayout stackdomicilio = new StackLayout() { Orientation = StackOrientation.Horizontal, BackgroundColor = Color.FromHex("#20C4C4C4"), Padding = new Thickness(40, 10, 20, 10), HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.Start, Children = { stackdatos, framecheck } };
+                stktarjetas.Children.Add(stackdomicilio);
             }
             catch (Exception ex)
             {
@@ -73,19 +60,13 @@ namespace mar
             }
         }
 
-        public async void limpiarcheckstarjetas()
+        public async void limpiartarjeta()
         {
             try
             {
-                for (int i = 0; i < stktarjetas.Children.Count; i++)
-                {
-                    StackLayout stacktarjeta = (StackLayout)stktarjetas.Children[i];
-                    CheckBox checkbox1 = (CheckBox)((Frame)stacktarjeta.Children[1]).Content;
-                    if(checkbox1.ClassId != tarjetaseleccionada)
-                    {
-                        checkbox1.IsChecked = false;
-                    }
-                }
+                entrynumero.Text = "";
+                entrycvv.Text = "";
+                entrynombre.Text = "";
             }
             catch (Exception ex)
             {
@@ -153,8 +134,6 @@ namespace mar
 
             }
         }
-
-      
 
         public async Task<string> httpRequest(string url)
         {
@@ -228,15 +207,76 @@ namespace mar
 
         async void continuar_Clicked(object sender, System.EventArgs e)
         {
-            if(tarjetaseleccionada != "" || domicilioseleccionado != "")
+            try
             {
-                await Navigation.PushAsync(new Resumen(tarjetaseleccionada, domicilioseleccionado));
+                if(domicilioseleccionado != "")
+                {
+                    if(oxxoseleccionado != "")
+                    {
+                        UserDialogs.Instance.ShowLoading("Autenticando método de pago con Conekta");
+                        
+                            UserDialogs.Instance.HideLoading();
+                            await Navigation.PushAsync(new Resumen("OXXO", domicilioseleccionado,"",""));
+                        
+                    }
+                    else
+                    {
+                        UserDialogs.Instance.ShowLoading("Autenticando método de pago con Conekta");
+                        int continuar = 1;
+                        string numero = entrynumero.Text;
+                        numero = numero.Replace(" ", "");
+                        string ano1 = "20" + datefecha.Date.Year.ToString().Substring(2);
+                        string mes1 = datefecha.Date.Month.ToString();
+                        string cvv = entrycvv.Text;
+                        string fecha = datefecha.Date.Year.ToString().Substring(2) + "/" + datefecha.Date.Month.ToString();
+                        string nombre = entrynombre.Text;
+                        if (numero.Length < 16)
+                        {
+                            continuar = 0;
+                            UserDialogs.Instance.Alert("Número incompleto");
+                        }
+                        if (nombre.Length < 5)
+                        {
+                            continuar = 0;
+                            UserDialogs.Instance.Alert("Nombre incompleto");
+                        }
+                        if (continuar == 1)
+                        {
+                            string token = "";
+                            switch (Device.RuntimePlatform)
+                            {
+                                case Device.iOS:
+                                    token = await new ConektaTokenizer("key_EU3RzXHR7T279WQsq7LN7ig", RuntimePlatform.iOS).GetTokenAsync(numero, nombre, cvv, int.Parse(ano1), int.Parse(mes1));
+                                    break;
+                                case Device.Android:
+                                    token = await new ConektaTokenizer("key_EU3RzXHR7T279WQsq7LN7ig", RuntimePlatform.Android).GetTokenAsync(numero, nombre, cvv, int.Parse(ano1), int.Parse(mes1));
+                                    break;
+                            }
+                            if (token != "")
+                            {
+                                UserDialogs.Instance.HideLoading();
+                                await Navigation.PushAsync(new Resumen(token, domicilioseleccionado, nombre, numero));
+                            }
+                            else
+                            {
+                                UserDialogs.Instance.HideLoading();
+                                UserDialogs.Instance.Alert("Algo salió mal. Revisa la información ingresada.");
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    UserDialogs.Instance.Alert("Debes seleccionar o ingresar un domicilio de entrega.");
+                }
+                
             }
-            else
+            catch (Exception ex)
             {
-                UserDialogs.Instance.Alert("Tarjeta o domicilio no seleccionado.");
+                UserDialogs.Instance.Alert("Algo salió mal. Revisa la información ingresada.");
+                UserDialogs.Instance.HideLoading();
             }
-            
         }
     }
 }

@@ -81,6 +81,9 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.0.35</Version>
     </PackageReference>
+    <PackageReference Include="PhotoBrowser.Forms">
+      <Version>0.1.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -138,6 +141,14 @@
     <AndroidResource Include="Resources\drawable\cartwhite.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
     <AndroidResource Include="Resources\drawable\title2.png" />
+    <AndroidResource Include="Resources\drawable\correo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\whatsapp.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

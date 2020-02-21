@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="mar.Pedidos">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#FFF">
+            <!--<Image Source="fondob.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"></Image>-->
+            <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="stack1">
+                        <Label Text="Pedidos" TextColor="#CF7667" Font="Bold, 28" Padding="20" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                        </Label>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#20C4C4C4" Padding="40, 20, 20, 20" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <StackLayout x:Name="stkpedidos" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

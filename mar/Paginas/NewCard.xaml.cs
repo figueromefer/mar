@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Acr.UserDialogs;
+using Conekta.Xamarin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,8 +25,13 @@ namespace mar
         {
             try
             {
+                UserDialogs.Instance.ShowLoading("Registrando tarjeta");
                 int continuar = 1;
                 string numero = entrynumero.Text;
+                numero = numero.Replace(" ", "");
+                string ano1 = "20"+datefecha.Date.Year.ToString().Substring(2);
+                string mes1 = datefecha.Date.Month.ToString();
+                string cvv = entrycvv.Text;
                 string fecha = datefecha.Date.Year.ToString().Substring(2)+"/"+ datefecha.Date.Month.ToString();
                 string nombre = entrynombre.Text;
                 if (numero.Length < 16)
@@ -40,10 +46,30 @@ namespace mar
                 }
                 if (continuar == 1)
                 {
-                    string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/ntarjeta.php?&usuario={0}&numero={1}&fecha={2}&nombre={3}", Settings.Idusuario, numero, fecha, nombre);
-                    var response2 = await httpRequest(uriString2);
-                    UserDialogs.Instance.Alert("Tarjeta registrada correctamente");
-                    await Navigation.PopAsync();
+                    string token = "";
+                    switch (Device.RuntimePlatform)
+                    {
+                        case Device.iOS:
+                            token = await new ConektaTokenizer("key_EU3RzXHR7T279WQsq7LN7ig", RuntimePlatform.iOS).GetTokenAsync(numero, nombre, cvv, int.Parse(ano1), int.Parse(mes1));
+                            break;
+                        case Device.Android:
+                            token = await new ConektaTokenizer("key_EU3RzXHR7T279WQsq7LN7ig", RuntimePlatform.Android).GetTokenAsync(numero, nombre, cvv, int.Parse(ano1), int.Parse(mes1));
+                            break;
+                    }
+                    if(token != "")
+                    {
+                        string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/ntarjeta.php?&usuario={0}&numero={1}&fecha={2}&nombre={3}&token={4}", Settings.Idusuario, numero, fecha, nombre, token);
+                        var response2 = await httpRequest(uriString2);
+                        UserDialogs.Instance.HideLoading();
+                        UserDialogs.Instance.Alert("Tarjeta registrada correctamente");
+                        await Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        UserDialogs.Instance.HideLoading();
+                        UserDialogs.Instance.Alert("Algo salió mal con el registro de la tarjeta. Revisa la información ingresada.");
+                    }
+                    
                 }
 
             }

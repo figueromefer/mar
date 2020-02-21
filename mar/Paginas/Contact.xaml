@@ -9,10 +9,22 @@
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="#FFF">
             <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout HorizontalOptions="Fill" Margin="40, 50, 40, 50">
-                    <Label Text="¿Tienes algún problema?" Margin="0, 0, 0, 10" Font="Normal, 18" TextColor="#000" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Label>
+                <StackLayout HorizontalOptions="Fill" Margin="40, 50, 40, 50" VerticalOptions="CenterAndExpand">
+                    <Label Text="¿Tienes algún problema?" Margin="0, 0, 0, 10" Font="Bold, 18" TextColor="#000" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Horario de atención de L.- V 8:30 - 16:00 hrs y Sabado 9:00 - 14:00 hrs" Margin="0, 0, 0, 30" Font="Normal, 14" TextColor="#000" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0,20">
+                        <Image WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" Source="whatsapp.png" Margin="20,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Whatsapp_Tapped" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" Source="correo.png" Margin="20,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Correo_Tapped" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
 
-                    <Button x:Name="btnRegister" Text="Contactar" BackgroundColor="#cf7667" TextColor="#FFF" Font="Arial, 16" CornerRadius="10"  Margin="0, 10, 0, 10" Clicked="Handle_Clicked"></Button>
                 </StackLayout>
             </ScrollView>
         </AbsoluteLayout>

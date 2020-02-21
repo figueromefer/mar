@@ -22,7 +22,7 @@ namespace mar
 
         public async void cargarcp()
         {
-            cp.Items.Clear();
+            colonia.Items.Clear();
             try
             {
                 string uriString2 = "http://boveda-creativa.net/laporciondelmar/cp.php";
@@ -31,7 +31,7 @@ namespace mar
                 valor = procesarunico(response2);
                 for (int i = 0; i < valor.Count(); i++)
                 {
-                    cp.Items.Add(valor.ElementAt(i).cadena);
+                    colonia.Items.Add(valor.ElementAt(i).cadena);
                 }
             }
             catch (Exception ex)
@@ -75,16 +75,16 @@ namespace mar
 
         async void cp_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            colonia.Items.Clear();
+            cp.Items.Clear();
             try
             {
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/colonias.php?&cp={0}", cp.SelectedItem.ToString());
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/colonias.php?&cp={0}", colonia.SelectedItem.ToString());
                 var response2 = await httpRequest(uriString2);
                 List<class_unico> valor = new List<class_unico>();
                 valor = procesarunico(response2);
                 for (int i = 0; i < valor.Count(); i++)
                 {
-                    colonia.Items.Add(valor.ElementAt(i).cadena);
+                    cp.Items.Add(valor.ElementAt(i).cadena);
                 }
             }
             catch (Exception ex)

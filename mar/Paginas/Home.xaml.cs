@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Acr.UserDialogs;
+using Stormlion.PhotoBrowser;
 
 namespace mar
 {
@@ -189,20 +190,24 @@ namespace mar
         {
             try
             {
+                Random rnd = new Random();
+                int numero = rnd.Next(1, 100);
                 LblTitulo.Text = categoria;
                 stkproductos.Children.Clear();
-                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1", categoria);
+                string uriString2 = string.Format("http://boveda-creativa.net/laporciondelmar/productos.php?categoria={0}&ver=1&numero="+ numero, categoria);
                 var response2 = await httpRequest(uriString2);
                 List<class_productos> valor = new List<class_productos>();
                 valor = procesar2(response2);
                 for (int i = 0; i < valor.Count(); i++)
                 {
-                    Image imagenproducto = new Image() { Source = new UriImageSource
+                    Image imagenproducto = new Image() { ClassId= valor.ElementAt(i).foto+"|"+ valor.ElementAt(i).foto2,
+                        Source = new UriImageSource
                         {
                             Uri = new Uri(valor.ElementAt(i).foto),
                             CachingEnabled = true,
                         },
  WidthRequest = 100 };
+                    imagenproducto.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => { try { OnClickedShowGallery(imagenproducto.ClassId.Split('|')[0],imagenproducto.ClassId.Split('|')[1]); } catch (Exception ex) { DisplayAlert("Help", ex.Message, "OK"); } }), NumberOfTapsRequired = 1 });
                     Label tituloproducto = new Label() { Text = valor.ElementAt(i).titulo, FontSize = 16, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Bold", "Lato-Bold.ttf#Lato-Bold", null) };
                     Label descripcionproducto = new Label() { Text = valor.ElementAt(i).descripcion, FontSize = 12, TextColor = Color.FromHex("#888888"), FontFamily = Device.OnPlatform("Lato-Regular", "Lato-Regular.ttf#Lato-Regular", null) };
 
@@ -400,6 +405,7 @@ namespace mar
                                  titulo = WebUtility.UrlDecode((string)r.Element("titulo")),
                                  descripcion = WebUtility.UrlDecode((string)r.Element("descripcion")),
                                  foto = WebUtility.UrlDecode((string)r.Element("foto")),
+                                 foto2 = WebUtility.UrlDecode((string)r.Element("foto2")),
                                  precio = WebUtility.UrlDecode((string)r.Element("precio")),
                                  inventario = WebUtility.UrlDecode((string)r.Element("inventario")),
                                  categoria = WebUtility.UrlDecode((string)r.Element("categoria")),
@@ -408,6 +414,30 @@ namespace mar
                 }
             }
             return items;
+        }
+
+        protected void OnClickedShowGallery(string fotourl, string fotourl2 )
+        {
+            new PhotoBrowser
+            {
+                Photos = new List<Photo>
+                {
+                    new Photo
+                    {
+                        URL = fotourl,
+                        Title = ""
+                    },
+                    new Photo
+                    {
+                        URL = fotourl2,
+                        Title = ""
+                    }
+
+                },
+
+                EnableGrid = true,
+
+            }.Show();
         }
 
         public async Task<string> httpRequest(string url)

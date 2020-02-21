@@ -27,6 +27,7 @@ namespace mar.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             ImageCircleRenderer.Init();
             UserDialogs.Init(this);
+            Stormlion.PhotoBrowser.Droid.Platform.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             

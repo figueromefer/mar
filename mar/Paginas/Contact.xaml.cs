@@ -17,7 +17,19 @@ namespace mar
             InitializeComponent();
         }
 
-        public async void Handle_Clicked(object sender, System.EventArgs e)
+        void Whatsapp_Tapped(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                Device.OpenUri(new Uri("https://api.whatsapp.com/send?phone=3316047748&text=Hola, mi usuario es el:"+Settings.Idusuario));
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        void Correo_Tapped(System.Object sender, System.EventArgs e)
         {
             try
             {

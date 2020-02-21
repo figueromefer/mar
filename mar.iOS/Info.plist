@@ -10,8 +10,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -27,11 +25,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>bc.LaPorciondelmar</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>CFBundleName</key>
-	<string>mar</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIAppFonts</key>
@@ -49,5 +45,20 @@
 	<string>Esta aplicación necesita acceso al microfono</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Esta aplicación necesita acceso a la galería para seleccionar fotos</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>CFBundleName</key>
+	<string>La porción del mar</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>La aplicación puede solicitar acceso al calendario</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>La aplicación puede necesitar acceso a la ubicación en todo momento</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>La aplicación puede necesitar la ubicación durante el uso</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2</string>
 </dict>
 </plist>

@@ -25,6 +25,7 @@ namespace mar.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             ImageCircleRenderer.Init();
+            Stormlion.PhotoBrowser.iOS.Platform.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
